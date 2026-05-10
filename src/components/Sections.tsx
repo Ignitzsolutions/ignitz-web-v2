@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { caseStudies, contactChannels, proofMetrics, site } from "@/content/site";
+import { caseStudies, contactChannels, divisions, proofMetrics, site } from "@/content/site";
 import type {
   CTA,
+  Division,
   IndustryCard,
   MarketingPage,
   OutcomeCard,
@@ -30,20 +31,7 @@ function ButtonLink({ cta }: { cta: CTA }) {
 export function Hero({ page, home = false }: { page: MarketingPage; home?: boolean }) {
   return (
     <section className={home ? "hero hero-home" : "hero hero-interior"}>
-      <div className="hero-stage" aria-hidden="true">
-        <div className="workflow-plane">
-          <span className="workflow-node node-a">Training</span>
-          <span className="workflow-node node-b">AI product</span>
-          <span className="workflow-node node-c">Expert pod</span>
-          <span className="workflow-node node-d">Capability transfer</span>
-          <span className="workflow-line line-a" />
-          <span className="workflow-line line-b" />
-          <span className="workflow-line line-c" />
-          <span className="workflow-core">Ignitz</span>
-        </div>
-      </div>
       <div className="hero-inner">
-        <p className="brand-signal">Ignitz</p>
         <div className="hero-copy reveal">
           {page.hero.eyebrow ? <p className="eyebrow">{page.hero.eyebrow}</p> : null}
           <h1>{page.hero.title}</h1>
@@ -55,8 +43,33 @@ export function Hero({ page, home = false }: { page: MarketingPage; home?: boole
             ) : null}
           </div>
         </div>
+        {home ? <SystemsMap /> : null}
       </div>
     </section>
+  );
+}
+
+function SystemsMap() {
+  return (
+    <div className="systems-map" aria-label="Ignitz division map">
+      <div className="map-core">
+        <span>Parent layer</span>
+        <strong>Ignitz</strong>
+        <small>AI systems company</small>
+      </div>
+      {divisions.map((division, index) => (
+        <Link
+          className={`map-division map-${division.accent}`}
+          href={division.href}
+          key={division.name}
+          style={{ ["--map-index" as string]: index }}
+        >
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <strong>{division.name}</strong>
+          <small>{division.positioning}</small>
+        </Link>
+      ))}
+    </div>
   );
 }
 
@@ -71,6 +84,62 @@ export function ProofBand() {
             <strong>{metric.value}</strong>
             <small>{metric.label}</small>
           </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export function DivisionLanes({ items = divisions }: { items?: Division[] }) {
+  return (
+    <section className="section division-lanes" id="divisions">
+      <SectionHeading
+        eyebrow="Company architecture"
+        title="Three divisions. One AI systems company."
+        lead="The structure gives Ignitz product credibility, consulting flexibility, healthcare focus, and room to scale into separate teams later."
+      />
+      <div className="division-lane-list">
+        {items.map((item, index) => (
+          <article className={`division-lane accent-${item.accent}`} key={item.name}>
+            <div className="division-number">{String(index + 1).padStart(2, "0")}</div>
+            <div>
+              <p className="kicker">{item.shortName}</p>
+              <h3>{item.name}</h3>
+              <p>{item.positioning}</p>
+            </div>
+            <ul>
+              {item.includedCapabilities.map((capability) => (
+                <li key={capability}>{capability}</li>
+              ))}
+            </ul>
+            <div className="division-actions">
+              {item.relatedLinks.map((link) => (
+                <Link href={link.href} key={link.href}>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export function CapabilityIndex({ items = divisions }: { items?: Division[] }) {
+  return (
+    <section className="section capability-index">
+      <div className="index-intro">
+        <p className="eyebrow">What Ignitz builds</p>
+        <h2>Products, systems, and vertical applications that carry intelligence into daily work.</h2>
+      </div>
+      <div className="index-rows">
+        {items.map((item) => (
+          <Link className={`index-row accent-${item.accent}`} href={item.href} key={item.name}>
+            <span>{item.shortName}</span>
+            <strong>{item.proofLine}</strong>
+            <small>{item.includedCapabilities.slice(0, 3).join(" / ")}</small>
+          </Link>
         ))}
       </div>
     </section>
@@ -240,14 +309,14 @@ export function ContactSection() {
 export function FinalCTA() {
   return (
     <section className="final-cta">
-      <p className="eyebrow">Workshop first</p>
-      <h2>Start with the operating question, not the vendor list.</h2>
+      <p className="eyebrow">Build with Ignitz</p>
+      <h2>Bring the product, workflow, or healthcare system that needs intelligence.</h2>
       <p>
-        Bring one training need, one AI product idea, or one delivery gap. Ignitz
-        will help shape the next concrete sprint.
+        We will route the conversation to Labs, Business Systems, or Health and
+        shape the next concrete build path.
       </p>
       <Link className="button button-primary" href="/contact">
-        Book a strategy workshop
+        Contact the team
       </Link>
     </section>
   );
@@ -269,23 +338,28 @@ export function Footer() {
       </div>
       <div className="footer-link-groups">
         <nav aria-label="Footer services">
+          <h3>Divisions</h3>
+          <Link href="/labs">Ignitz Labs</Link>
+          <Link href="/business-systems">Business Systems</Link>
+          <Link href="/health">Ignitz Health</Link>
+        </nav>
+        <nav aria-label="Footer products">
+          <h3>Labs</h3>
+          <Link href="/ai-products">AI products</Link>
+          <Link href="/incubator">Incubator</Link>
+          <Link href="/hackathons">Hackathons</Link>
+        </nav>
+        <nav aria-label="Footer services">
           <h3>Services</h3>
           <Link href="/training">Training</Link>
           <Link href="/ai-product-development">AI product development</Link>
           <Link href="/expert-teams">Expert teams</Link>
-        </nav>
-        <nav aria-label="Footer products">
-          <h3>Products</h3>
-          <Link href="/ai-products">AI products</Link>
-          <Link href="/incubator">Incubator</Link>
-          <Link href="/hackathons">Hackathons</Link>
         </nav>
         <nav aria-label="Footer company">
           <h3>Company</h3>
           <Link href="/blogs">Blogs</Link>
           <Link href="/team">Team</Link>
           <Link href="/interns">Interns</Link>
-          <Link href="/case-studies">Case studies</Link>
         </nav>
         <nav aria-label="Footer legal">
           <h3>Legal</h3>
@@ -294,9 +368,7 @@ export function Footer() {
           <Link href="/accessibility">Accessibility</Link>
         </nav>
       </div>
-      <p className="footer-highlight" aria-hidden="true">
-        IGNITZ
-      </p>
+      <p className="footer-line">Engineering intelligent systems from Hyderabad.</p>
     </footer>
   );
 }

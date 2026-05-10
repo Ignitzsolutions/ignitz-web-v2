@@ -1,6 +1,7 @@
 import type {
   CaseStudyCard,
   ContactChannel,
+  Division,
   FAQItem,
   IndustryCard,
   InsightCard,
@@ -15,7 +16,7 @@ export const site = {
   name: "Ignitz",
   url: "https://www.ignitz.net",
   description:
-    "Ignitz helps enterprises train teams, build AI products, and scale delivery with embedded expert talent.",
+    "Ignitz builds AI-powered products, operational systems, and healthcare technologies.",
   address:
     "4th Floor, Plot No-12, Survey No 1009, KPHB Phase 6, Kukatpally, Hyderabad, Telangana 500085, India",
   phone: "+91 93927 96918",
@@ -23,18 +24,81 @@ export const site = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "AI Products", href: "/ai-products" },
-  { label: "Incubator", href: "/incubator" },
-  { label: "Training", href: "/training" },
+  { label: "Labs", href: "/labs" },
+  { label: "Business Systems", href: "/business-systems" },
+  { label: "Health", href: "/health" },
   { label: "Blogs", href: "/blogs" },
   { label: "Team", href: "/team" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const proofMetrics: ProofMetric[] = [
-  { value: "3", label: "training, AI builds, expert teams", kicker: "Core offers" },
-  { value: "5+", label: "delivery functions from AI to DevOps", kicker: "Capability range" },
-  { value: "India", label: "Hyderabad delivery base with enterprise reach", kicker: "Operating base" },
-  { value: "V1", label: "approved proof assets pending", kicker: "Proof status" },
+  { value: "3", label: "AI products, business systems, healthcare", kicker: "Divisions" },
+  { value: "AI", label: "agents, copilots, automations, knowledge systems", kicker: "Native layer" },
+  { value: "HYD", label: "Hyderabad delivery base with global reach", kicker: "Operating base" },
+  { value: "Studio", label: "editable products, blogs, teams, interns", kicker: "Admin-ready" },
+];
+
+export const divisions: Division[] = [
+  {
+    name: "Ignitz Labs",
+    shortName: "Labs",
+    href: "/labs",
+    positioning: "Building AI-native products and intelligent systems.",
+    includedCapabilities: [
+      "MindSpan and AI product concepts",
+      "AI agents and copilots",
+      "Knowledge graph systems",
+      "Developer tools and automation products",
+      "Incubation projects and hackathons",
+    ],
+    proofLine: "Internal R&D becomes product proof, reusable IP, and delivery strength.",
+    accent: "labs",
+    relatedLinks: [
+      { label: "AI products", href: "/ai-products" },
+      { label: "Incubator", href: "/incubator" },
+      { label: "Hackathons", href: "/hackathons" },
+    ],
+  },
+  {
+    name: "Ignitz Business Solutions",
+    shortName: "Business Systems",
+    href: "/business-systems",
+    positioning: "AI-powered business systems for modern operations.",
+    includedCapabilities: [
+      "Commerce and storefront infrastructure",
+      "Invoice, admin, and ERP-lite systems",
+      "CRM and workflow integrations",
+      "Operational dashboards",
+      "AI automation for business processes",
+    ],
+    proofLine: "Operational software positioned as infrastructure, not web development.",
+    accent: "business",
+    relatedLinks: [
+      { label: "AI product development", href: "/ai-product-development" },
+      { label: "Expert teams", href: "/expert-teams" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    name: "Ignitz Health",
+    shortName: "Health",
+    href: "/health",
+    positioning: "AI-assisted healthcare applications and intelligent patient workflows.",
+    includedCapabilities: [
+      "Clinic and appointment workflows",
+      "Patient systems and health dashboards",
+      "AI triage and medical assistants",
+      "Healthcare analytics",
+      "Secure workflow automation",
+    ],
+    proofLine: "A focused vertical for higher-trust, healthcare-ready applications.",
+    accent: "health",
+    relatedLinks: [
+      { label: "Explore use cases", href: "/health" },
+      { label: "Talk to Ignitz", href: "/contact" },
+    ],
+  },
 ];
 
 export const pillars: ServicePillar[] = [

@@ -17,7 +17,9 @@ import {
 } from "./DynamicContent";
 import {
   CaseStudyGrid,
+  CapabilityIndex,
   ContactSection,
+  DivisionLanes,
   FAQSection,
   FinalCTA,
   Hero,
@@ -55,6 +57,12 @@ export function PageRenderer({
     <main>
       <Hero page={page} home={home} />
       {home ? <ProofBand /> : null}
+      {home ? (
+        <>
+          <DivisionLanes />
+          <CapabilityIndex />
+        </>
+      ) : null}
       {home && dynamicContent ? (
         <>
           <AIProductsShowcase products={dynamicContent.products} />
@@ -69,7 +77,7 @@ export function PageRenderer({
           <p>{page.sections.intro}</p>
         </section>
       ) : null}
-      {page.sections.pillars ? <PillarEditorial items={page.sections.pillars} /> : null}
+      {!home && page.sections.pillars ? <PillarEditorial items={page.sections.pillars} /> : null}
       {page.sections.outcomes ? <OutcomeProof items={page.sections.outcomes} /> : null}
       {caseStudies ? <CaseStudyGrid /> : null}
       {insightList ? <InsightsGrid /> : null}

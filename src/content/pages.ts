@@ -4,15 +4,15 @@ import type { MarketingPage } from "./types";
 export const pages: Record<string, MarketingPage> = {
   home: {
     slug: "/",
-    title: "Train Teams and Build AI Products | Ignitz",
+    title: "AI Systems for Products, Businesses, and Healthcare | Ignitz",
     description:
-      "Ignitz helps enterprises upskill teams, co-build AI products, and deploy expert teams for measurable transformation outcomes.",
+      "Ignitz builds AI-powered products, operational systems, and healthcare technologies for real business problems.",
     hero: {
-      eyebrow: "AI training, product delivery, and expert teams",
-      title: "Build AI capability. Ship AI products. Scale with expert teams.",
-      lead: "Ignitz helps enterprise and consulting organizations upskill delivery teams, co-build AI products, and embed skilled talent where execution matters most.",
-      primaryCta: { label: "Book a strategy workshop", href: "/contact" },
-      secondaryCta: { label: "Explore training programs", href: "/training" },
+      eyebrow: "Ignitz technology company",
+      title: "AI Systems for Products, Businesses, and Healthcare.",
+      lead: "We build intelligent platforms, operational workflows, and AI-powered applications that solve real business problems.",
+      primaryCta: { label: "Explore Ignitz", href: "#divisions" },
+      secondaryCta: { label: "Contact the team", href: "/contact" },
     },
     sections: { pillars, outcomes, process, industries, faqs },
   },

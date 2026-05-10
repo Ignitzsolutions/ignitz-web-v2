@@ -21,7 +21,7 @@ export function Header() {
         ))}
       </nav>
       <Link className="header-cta" href="/contact">
-        Book workshop
+        Contact
       </Link>
       <button
         className="menu-button"
@@ -41,7 +41,7 @@ export function Header() {
           </Link>
         ))}
         <Link className="button button-primary" href="/contact" onClick={() => setOpen(false)}>
-          Book workshop
+          Contact the team
         </Link>
       </div>
     </header>

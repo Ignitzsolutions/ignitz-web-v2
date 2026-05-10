@@ -9,6 +9,17 @@ export type NavItem = {
   href: string;
 };
 
+export type Division = {
+  name: "Ignitz Labs" | "Ignitz Business Solutions" | "Ignitz Health";
+  shortName: string;
+  href: string;
+  positioning: string;
+  includedCapabilities: string[];
+  proofLine: string;
+  accent: "labs" | "business" | "health";
+  relatedLinks: CTA[];
+};
+
 export type PageHero = {
   eyebrow?: string;
   title: string;
