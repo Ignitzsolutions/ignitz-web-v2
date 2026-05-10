@@ -17,7 +17,6 @@ import {
 } from "./DynamicContent";
 import {
   CaseStudyGrid,
-  CapabilityIndex,
   ContactSection,
   DivisionLanes,
   FAQSection,
@@ -60,7 +59,6 @@ export function PageRenderer({
       {home ? (
         <>
           <DivisionLanes />
-          <CapabilityIndex />
         </>
       ) : null}
       {home && dynamicContent ? (
@@ -78,13 +76,13 @@ export function PageRenderer({
         </section>
       ) : null}
       {!home && page.sections.pillars ? <PillarEditorial items={page.sections.pillars} /> : null}
-      {page.sections.outcomes ? <OutcomeProof items={page.sections.outcomes} /> : null}
+      {!home && page.sections.outcomes ? <OutcomeProof items={page.sections.outcomes} /> : null}
       {caseStudies ? <CaseStudyGrid /> : null}
       {insightList ? <InsightsGrid /> : null}
-      {page.sections.process ? <StickyProcess items={page.sections.process} /> : null}
-      {page.sections.industries ? <IndustryIndex items={page.sections.industries} /> : null}
+      {!home && page.sections.process ? <StickyProcess items={page.sections.process} /> : null}
+      {!home && page.sections.industries ? <IndustryIndex items={page.sections.industries} /> : null}
       {contact ? <ContactSection /> : null}
-      <FAQSection page={page} />
+      {!home ? <FAQSection page={page} /> : null}
       <FinalCTA />
     </main>
   );

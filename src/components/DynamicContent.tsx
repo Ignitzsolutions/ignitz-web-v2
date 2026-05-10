@@ -75,10 +75,9 @@ export function AIProductsShowcase({ products }: { products: AIProduct[] }) {
     <section className="section product-showcase">
       <div className="section-heading">
         <p className="eyebrow">AI products</p>
-        <h2>Internal products that turn delivery insight into reusable capability.</h2>
+        <h2>AI product nodes from the Ignitz lab.</h2>
         <p>
-          These product entries are editable in Sanity and can represent concepts,
-          prototypes, pilots, or live tools.
+          Concepts, prototypes, pilots, and live tools managed from the admin portal.
         </p>
       </div>
       <div className="content-grid">
@@ -100,10 +99,9 @@ export function IncubatorPreview({ projects }: { projects: IncubatedProject[] })
     <section className="section incubator-preview">
       <div className="section-heading">
         <p className="eyebrow">In-house incubation</p>
-        <h2>Projects that start inside Ignitz and mature into product proof.</h2>
+        <h2>Incubation paths that feed the product graph.</h2>
         <p>
-          Use this section for internal prototypes, lab projects, and incubator
-          candidates created by teams, interns, and hackathons.
+          Internal prototypes and hackathon outputs move toward product proof.
         </p>
       </div>
       <ContentGrid
@@ -148,7 +146,7 @@ export function BlogPreview({ posts }: { posts: BlogPost[] }) {
     <section className="section blog-preview">
       <div className="section-heading">
         <p className="eyebrow">Blogs</p>
-        <h2>Thinking from the product, training, and incubator floor.</h2>
+        <h2>Notes from product, incubation, and delivery.</h2>
       </div>
       <ContentGrid
         emptyLabel="No blog posts are published yet."
@@ -177,10 +175,9 @@ export function PeoplePreview({
     <section className="section people-preview">
       <div className="section-heading">
         <p className="eyebrow">Teams and interns</p>
-        <h2>The product pipeline is also a people pipeline.</h2>
+        <h2>The people graph behind the product graph.</h2>
         <p>
-          Keep mentor profiles, team leads, interns, cohorts, and project links
-          editable from the admin portal.
+          Mentors, team leads, interns, cohorts, and project links stay editable.
         </p>
       </div>
       <div className="people-columns">

@@ -53,9 +53,8 @@ function SystemsMap() {
   return (
     <div className="systems-map" aria-label="Ignitz division map">
       <div className="map-core">
-        <span>Parent layer</span>
-        <strong>Ignitz</strong>
-        <small>AI systems company</small>
+        <span>Ignitz operating model</span>
+        <strong>Products / Operations / Health</strong>
       </div>
       {divisions.map((division, index) => (
         <Link
@@ -95,8 +94,8 @@ export function DivisionLanes({ items = divisions }: { items?: Division[] }) {
     <section className="section division-lanes" id="divisions">
       <SectionHeading
         eyebrow="Company architecture"
-        title="Three divisions. One AI systems company."
-        lead="The structure gives Ignitz product credibility, consulting flexibility, healthcare focus, and room to scale into separate teams later."
+        title="Three operating nodes. One company intelligence layer."
+        lead="Ignitz is structured as a product lab, an operations systems unit, and a focused healthcare vertical."
       />
       <div className="division-lane-list">
         {items.map((item, index) => (
@@ -108,7 +107,7 @@ export function DivisionLanes({ items = divisions }: { items?: Division[] }) {
               <p>{item.positioning}</p>
             </div>
             <ul>
-              {item.includedCapabilities.map((capability) => (
+              {item.includedCapabilities.slice(0, 4).map((capability) => (
                 <li key={capability}>{capability}</li>
               ))}
             </ul>
