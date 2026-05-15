@@ -1,31 +1,15 @@
 import { insights } from "@/content/site";
 import type { MarketingPage } from "@/content/types";
-import type {
-  AIProduct,
-  BlogPost,
-  Hackathon,
-  IncubatedProject,
-  Intern,
-  TeamMember,
-} from "@/content/dynamic/types";
-import {
-  AIProductsShowcase,
-  BlogPreview,
-  HackathonPreview,
-  IncubatorPreview,
-  PeoplePreview,
-} from "./DynamicContent";
 import {
   CaseStudyGrid,
   ContactSection,
-  DivisionLanes,
   FAQSection,
   FinalCTA,
   Hero,
   IndustryIndex,
   OutcomeProof,
   PillarEditorial,
-  ProofBand,
+  PrecisionHome,
   SectionHeading,
   StickyProcess,
 } from "./Sections";
@@ -36,40 +20,24 @@ export function PageRenderer({
   contact = false,
   caseStudies = false,
   insightList = false,
-  dynamicContent,
 }: {
   page: MarketingPage;
   home?: boolean;
   contact?: boolean;
   caseStudies?: boolean;
   insightList?: boolean;
-  dynamicContent?: {
-    products: AIProduct[];
-    projects: IncubatedProject[];
-    hackathons: Hackathon[];
-    posts: BlogPost[];
-    team: TeamMember[];
-    interns: Intern[];
-  };
 }) {
+  if (home) {
+    return (
+      <main>
+        <PrecisionHome />
+      </main>
+    );
+  }
+
   return (
     <main>
       <Hero page={page} home={home} />
-      {home ? <ProofBand /> : null}
-      {home ? (
-        <>
-          <DivisionLanes />
-        </>
-      ) : null}
-      {home && dynamicContent ? (
-        <>
-          <AIProductsShowcase products={dynamicContent.products} />
-          <IncubatorPreview projects={dynamicContent.projects} />
-          <HackathonPreview hackathons={dynamicContent.hackathons} />
-          <BlogPreview posts={dynamicContent.posts} />
-          <PeoplePreview team={dynamicContent.team} interns={dynamicContent.interns} />
-        </>
-      ) : null}
       {page.sections.intro ? (
         <section className="intro-section">
           <p>{page.sections.intro}</p>

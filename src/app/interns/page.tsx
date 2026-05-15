@@ -12,13 +12,13 @@ export default async function InternsPage() {
   const interns = await getInterns();
 
   return (
-    <>
+    <main>
       <CollectionHero
         eyebrow="Interns"
         title="Intern cohorts connected to real AI product work."
         lead="Showcase intern tracks, cohort projects, mentors, and hackathon outputs as part of the Ignitz talent pipeline."
       />
       <ContentGrid emptyLabel="No interns are published yet." items={internsToCards(interns)} />
-    </>
+    </main>
   );
 }

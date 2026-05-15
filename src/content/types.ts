@@ -90,6 +90,63 @@ export type ContactChannel = {
   href: string;
 };
 
+export type BrandNarrative = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  primaryCta: CTA;
+  secondaryCta: CTA;
+  signals: string[];
+};
+
+export type KnowledgeGraphNode = {
+  id: string;
+  label: string;
+  group: "core" | "labs" | "business" | "health" | "learning" | "talent";
+  summary: string;
+  href?: string;
+  x: number;
+  y: number;
+};
+
+export type KnowledgeGraphEdge = {
+  from: string;
+  to: string;
+};
+
+export type CapabilityNode = {
+  label: string;
+  title: string;
+  summary: string;
+  accent: "strategy" | "data" | "systems" | "operations" | "memory";
+};
+
+export type FlagshipProduct = {
+  name: string;
+  status: string;
+  tagline: string;
+  summary: string;
+  proof: string;
+  href: string;
+  accent: "flagship" | "memory" | "operations" | "community";
+};
+
+export type EngineeringCultureItem = {
+  title: string;
+  summary: string;
+};
+
+export type CommunitySignal = {
+  label: string;
+  title: string;
+  summary: string;
+};
+
+export type PlatformProof = {
+  label: string;
+  value: string;
+};
+
 export type MarketingPage = {
   slug: string;
   hero: PageHero;

@@ -12,7 +12,7 @@ export default async function BlogsPage() {
   const posts = await getBlogPosts();
 
   return (
-    <>
+    <main>
       <CollectionHero
         eyebrow="Blogs"
         title="Field notes from AI products, incubation, and delivery."
@@ -30,6 +30,6 @@ export default async function BlogsPage() {
           tags: post.tags,
         }))}
       />
-    </>
+    </main>
   );
 }

@@ -12,7 +12,7 @@ export default async function HackathonsPage() {
   const hackathons = await getHackathons();
 
   return (
-    <>
+    <main>
       <CollectionHero
         eyebrow="Hackathons"
         title="Hackathons that feed the AI product pipeline."
@@ -30,6 +30,6 @@ export default async function HackathonsPage() {
           tags: hackathon.tags,
         }))}
       />
-    </>
+    </main>
   );
 }

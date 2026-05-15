@@ -12,7 +12,7 @@ export default async function IncubatorPage() {
   const projects = await getIncubatedProjects();
 
   return (
-    <>
+    <main>
       <CollectionHero
         eyebrow="Incubator"
         title="In-house projects that become product proof."
@@ -30,6 +30,6 @@ export default async function IncubatorPage() {
           tags: project.tags,
         }))}
       />
-    </>
+    </main>
   );
 }

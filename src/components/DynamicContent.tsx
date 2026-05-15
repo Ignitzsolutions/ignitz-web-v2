@@ -28,13 +28,11 @@ export function CollectionHero({
   lead: string;
 }) {
   return (
-    <main>
-      <section className="collection-hero">
-        <p className="eyebrow">{eyebrow}</p>
-        <h1>{title}</h1>
-        <p>{lead}</p>
-      </section>
-    </main>
+    <section className="collection-hero">
+      <p className="eyebrow">{eyebrow}</p>
+      <h1>{title}</h1>
+      <p>{lead}</p>
+    </section>
   );
 }
 

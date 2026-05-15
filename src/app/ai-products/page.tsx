@@ -12,7 +12,7 @@ export default async function AIProductsPage() {
   const products = await getAIProducts();
 
   return (
-    <>
+    <main>
       <CollectionHero
         eyebrow="AI products"
         title="AI products built from real delivery work."
@@ -30,6 +30,6 @@ export default async function AIProductsPage() {
           tags: product.tags,
         }))}
       />
-    </>
+    </main>
   );
 }

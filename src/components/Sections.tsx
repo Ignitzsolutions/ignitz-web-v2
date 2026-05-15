@@ -1,5 +1,20 @@
 import Link from "next/link";
-import { caseStudies, contactChannels, divisions, proofMetrics, site } from "@/content/site";
+import {
+  brandNarrative,
+  capabilityNodes,
+  caseStudies,
+  communitySignals,
+  contactChannels,
+  divisions,
+  engineeringCulture,
+  flagshipProducts,
+  heroTypingPhrases,
+  knowledgeGraphEdges,
+  knowledgeGraphNodes,
+  platformProof,
+  proofMetrics,
+  site,
+} from "@/content/site";
 import type {
   CTA,
   Division,
@@ -12,6 +27,8 @@ import type {
 import { ContactForm } from "./ContactForm";
 import { FAQAccordion } from "./FAQAccordion";
 import { BrandLogo } from "./BrandLogo";
+import { HeroTypingText } from "./HeroTypingText";
+import { InteractiveHeroGraph } from "./InteractiveHeroGraph";
 
 function ButtonLink({ cta }: { cta: CTA }) {
   const className =
@@ -25,6 +42,169 @@ function ButtonLink({ cta }: { cta: CTA }) {
     <Link className={className} href={cta.href}>
       {cta.label}
     </Link>
+  );
+}
+
+export function PrecisionHome() {
+  return (
+    <>
+      <PrecisionHero />
+      <PrecisionTrustStrip />
+      <CapabilityArchitecture />
+      <FlagshipProducts />
+      <EngineeringCulture />
+      <CommunityPipeline />
+      <SystemsCTA />
+    </>
+  );
+}
+
+function PrecisionHero() {
+  return (
+    <section className="precision-hero">
+      <div className="precision-hero-copy reveal">
+        <p className="eyebrow">{brandNarrative.eyebrow}</p>
+        <h1>
+          <span>{brandNarrative.title}</span>
+          <HeroTypingText phrases={heroTypingPhrases} />
+        </h1>
+        <p>{brandNarrative.lead}</p>
+        <div className="hero-actions">
+          <ButtonLink cta={brandNarrative.primaryCta} />
+          <ButtonLink cta={{ ...brandNarrative.secondaryCta, variant: "secondary" }} />
+        </div>
+      </div>
+      <InteractiveHeroGraph nodes={knowledgeGraphNodes} edges={knowledgeGraphEdges} />
+    </section>
+  );
+}
+
+function PrecisionTrustStrip() {
+  return (
+    <section className="precision-proof" aria-label="Ignitz proof signals">
+      {platformProof.map((item) => (
+        <article key={item.label}>
+          <span>{item.label}</span>
+          <strong>{item.value}</strong>
+        </article>
+      ))}
+    </section>
+  );
+}
+
+function CapabilityArchitecture() {
+  return (
+    <section className="precision-section capability-architecture" id="capability-architecture">
+      <div className="precision-section-heading">
+        <p className="eyebrow">Capability architecture</p>
+        <h2>Ignitz connects strategy, data, AI systems, operations, and learning memory.</h2>
+        <p>
+          The work is not a service catalog. It is an operating system for building
+          practical intelligence into business workflows.
+        </p>
+      </div>
+      <div className="capability-map" aria-label="Capability architecture nodes">
+        {capabilityNodes.map((node) => (
+          <article className={`capability-node node-${node.accent}`} key={node.title}>
+            <span>{node.label}</span>
+            <h3>{node.title}</h3>
+            <p>{node.summary}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function FlagshipProducts() {
+  return (
+    <section className="precision-section flagship-products">
+      <div className="precision-section-heading">
+        <p className="eyebrow">Product proof</p>
+        <h2>Flagship ideas, internal products, and business systems prove the way Ignitz builds.</h2>
+        <p>
+          Evaluate Yourself and MindSpan make the company philosophy tangible:
+          learning, feedback, memory, and operations should become systems.
+        </p>
+      </div>
+      <div className="flagship-list">
+        {flagshipProducts.map((product, index) => (
+          <Link
+            className={`flagship-row flagship-${product.accent}`}
+            href={product.href}
+            key={product.name}
+          >
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <small>{product.status}</small>
+              <h3>{product.name}</h3>
+              <strong>{product.tagline}</strong>
+            </div>
+            <p>{product.summary}</p>
+            <em>{product.proof}</em>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function EngineeringCulture() {
+  return (
+    <section className="precision-section engineering-culture">
+      <div className="precision-section-heading">
+        <p className="eyebrow">AI-first engineering culture</p>
+        <h2>AI is not a feature layer. It is becoming the operating system of engineering.</h2>
+      </div>
+      <div className="culture-grid">
+        {engineeringCulture.map((item) => (
+          <article key={item.title}>
+            <h3>{item.title}</h3>
+            <p>{item.summary}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function CommunityPipeline() {
+  return (
+    <section className="precision-section community-pipeline">
+      <div className="precision-section-heading">
+        <p className="eyebrow">Community and incubation</p>
+        <h2>Ignitz is building a pipeline of students, builders, interns, and future founders.</h2>
+        <p>
+          Hackathons are not events alone. They are compressed environments for
+          upskilling, experimentation, mentorship, and product discovery.
+        </p>
+      </div>
+      <div className="community-rail">
+        {communitySignals.map((item) => (
+          <article key={item.label}>
+            <span>{item.label}</span>
+            <h3>{item.title}</h3>
+            <p>{item.summary}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function SystemsCTA() {
+  return (
+    <section className="systems-cta">
+      <p className="eyebrow">Build an AI system with Ignitz</p>
+      <h2>Bring the workflow, product idea, learning gap, or operational problem.</h2>
+      <p>
+        Ignitz will help turn it into a practical system: scoped, built, operated,
+        learned from, and improved over time.
+      </p>
+      <Link className="button button-primary" href="/contact">
+        Start the conversation
+      </Link>
+    </section>
   );
 }
 
