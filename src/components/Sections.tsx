@@ -1,12 +1,12 @@
 import Link from "next/link";
 import {
+  aiSystemsStack,
   brandNarrative,
   capabilityNodes,
   caseStudies,
   communitySignals,
   contactChannels,
   divisions,
-  engineeringCulture,
   flagshipProducts,
   heroTypingPhrases,
   knowledgeGraphEdges,
@@ -50,9 +50,9 @@ export function PrecisionHome() {
     <>
       <PrecisionHero />
       <PrecisionTrustStrip />
-      <CapabilityArchitecture />
       <FlagshipProducts />
-      <EngineeringCulture />
+      <AISystemsStack />
+      <CapabilityArchitecture />
       <CommunityPipeline />
       <SystemsCTA />
     </>
@@ -66,8 +66,11 @@ function PrecisionHero() {
         <p className="eyebrow">{brandNarrative.eyebrow}</p>
         <h1>
           <span>{brandNarrative.title}</span>
-          <HeroTypingText phrases={heroTypingPhrases} />
         </h1>
+        <div className="hero-typing-support">
+          <span>Built for</span>
+          <HeroTypingText phrases={heroTypingPhrases} />
+        </div>
         <p>{brandNarrative.lead}</p>
         <div className="hero-actions">
           <ButtonLink cta={brandNarrative.primaryCta} />
@@ -121,10 +124,10 @@ function FlagshipProducts() {
     <section className="precision-section flagship-products">
       <div className="precision-section-heading">
         <p className="eyebrow">Product proof</p>
-        <h2>Flagship ideas, internal products, and business systems prove the way Ignitz builds.</h2>
+        <h2>Products and systems that make the Ignitz operating model tangible.</h2>
         <p>
-          Evaluate Yourself and MindSpan make the company philosophy tangible:
-          learning, feedback, memory, and operations should become systems.
+          Evaluate Yourself leads the roadmap. MindSpan, Storefront OS, and NexGen-AI show how
+          Ignitz turns learning, operations, and community into reusable product capability.
         </p>
       </div>
       <div className="flagship-list">
@@ -135,13 +138,23 @@ function FlagshipProducts() {
             key={product.name}
           >
             <span>{String(index + 1).padStart(2, "0")}</span>
-            <div>
+            <div className="flagship-main">
               <small>{product.status}</small>
               <h3>{product.name}</h3>
               <strong>{product.tagline}</strong>
             </div>
-            <p>{product.summary}</p>
-            <em>{product.proof}</em>
+            <div className="flagship-meta">
+              <span>Use case</span>
+              <p>{product.useCase}</p>
+            </div>
+            <div className="flagship-meta">
+              <span>Designed for</span>
+              <p>{product.targetUser}</p>
+            </div>
+            <em>
+              {product.proof}
+              <b>{product.ctaLabel}</b>
+            </em>
           </Link>
         ))}
       </div>
@@ -149,20 +162,30 @@ function FlagshipProducts() {
   );
 }
 
-function EngineeringCulture() {
+function AISystemsStack() {
   return (
-    <section className="precision-section engineering-culture">
-      <div className="precision-section-heading">
-        <p className="eyebrow">AI-first engineering culture</p>
-        <h2>AI is not a feature layer. It is becoming the operating system of engineering.</h2>
-      </div>
-      <div className="culture-grid">
-        {engineeringCulture.map((item) => (
-          <article key={item.title}>
-            <h3>{item.title}</h3>
-            <p>{item.summary}</p>
-          </article>
-        ))}
+    <section className="precision-section ai-stack-section">
+      <div className="stack-shell">
+        <div className="stack-intro">
+          <p className="eyebrow">AI systems stack</p>
+          <h2>From data layer to talent pipeline, Ignitz builds the operating surface.</h2>
+          <p>
+            The stack is intentionally practical: the parts a business needs to control,
+            automate, learn from, and scale with AI.
+          </p>
+        </div>
+        <div className="stack-list">
+          {aiSystemsStack.map((item) => (
+            <article className={`stack-item stack-${item.accent}`} key={item.title}>
+              <span>{item.layer}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.summary}</p>
+              </div>
+              <small>{item.signal}</small>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

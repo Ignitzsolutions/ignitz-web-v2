@@ -1,4 +1,5 @@
 import type {
+  AISystemsStackItem,
   BrandNarrative,
   CaseStudyCard,
   CapabilityNode,
@@ -49,9 +50,9 @@ export const proofMetrics: ProofMetric[] = [
 
 export const brandNarrative: BrandNarrative = {
   eyebrow: "Microsoft for Startups-backed AI systems company",
-  title: "Ignitz builds AI systems for",
+  title: "Ignitz builds AI systems for modern operations.",
   lead:
-    "Practical AI products, operational platforms, healthcare workflows, and talent systems that turn capability into business infrastructure.",
+    "Productized AI, business operations, healthcare workflows, and learning systems built as practical infrastructure.",
   primaryCta: { label: "Build with Ignitz", href: "/contact" },
   secondaryCta: { label: "Explore the system", href: "#capability-architecture" },
   signals: [
@@ -217,8 +218,11 @@ export const flagshipProducts: FlagshipProduct[] = [
     tagline: "A practical self-evaluation system for modern learners and teams.",
     summary:
       "Evaluate Yourself will become a flagship Ignitz product: a focused platform for assessment, feedback, progress visibility, and learning accountability.",
+    useCase: "Assessment, feedback, progress visibility, and learner accountability.",
+    targetUser: "Students, interns, training cohorts, and capability teams.",
     proof: "Designed as a product, not a campaign page.",
     href: "/ai-products",
+    ctaLabel: "View product direction",
     accent: "flagship",
   },
   {
@@ -227,8 +231,11 @@ export const flagshipProducts: FlagshipProduct[] = [
     tagline: "See the spread of your thinking.",
     summary:
       "A Markdown-based knowledge bandwidth visualizer that turns notes, review comments, mistakes, and lessons into a living map of growth.",
+    useCase: "Engineering memory, review learning, cognitive maps, and knowledge growth.",
+    targetUser: "Builders, reviewers, mentors, and AI-assisted engineering teams.",
     proof: "Shows Ignitz's belief that learning should compound.",
     href: "/incubator",
+    ctaLabel: "Open incubator",
     accent: "memory",
   },
   {
@@ -237,8 +244,11 @@ export const flagshipProducts: FlagshipProduct[] = [
     tagline: "Operations infrastructure for traditional businesses.",
     summary:
       "Dynamic storefronts, admin dashboards, inventory-aware workflows, reports, CSV exports, and operational control without constant developer dependency.",
+    useCase: "Storefronts, admin systems, reports, dashboards, and workflow control.",
+    targetUser: "Business owners and operators who need self-managed systems.",
     proof: "Business owners should control daily operations.",
     href: "/business-systems",
+    ctaLabel: "Explore systems",
     accent: "operations",
   },
   {
@@ -247,9 +257,57 @@ export const flagshipProducts: FlagshipProduct[] = [
     tagline: "AI learning through rapid product building.",
     summary:
       "Hackathons are treated as capability accelerators: Azure/OpenAI tooling, mentorship, incubation opportunities, and exposure to real AI workflows.",
+    useCase: "Rapid prototypes, AI upskilling, mentorship, and product discovery.",
+    targetUser: "Students, interns, campus builders, and future founders.",
     proof: "A pipeline for students, builders, and future founders.",
     href: "/hackathons",
+    ctaLabel: "See hackathons",
     accent: "community",
+  },
+];
+
+export const aiSystemsStack: AISystemsStackItem[] = [
+  {
+    layer: "01",
+    title: "Data layer",
+    summary: "Knowledge sources, structured data, operational records, and retrieval-ready foundations.",
+    signal: "RAG / databases / cloud",
+    accent: "data",
+  },
+  {
+    layer: "02",
+    title: "AI agents",
+    summary: "Copilots, assistants, Realtime interfaces, and OpenAI/Azure OpenAI-powered workflows.",
+    signal: "agents / copilots / realtime",
+    accent: "agents",
+  },
+  {
+    layer: "03",
+    title: "Workflow automation",
+    summary: "Business rules, handoffs, reporting loops, notifications, and process acceleration.",
+    signal: "automation / integrations",
+    accent: "automation",
+  },
+  {
+    layer: "04",
+    title: "Admin systems",
+    summary: "Storefront control, dashboards, inventory-aware workflows, exports, and operating views.",
+    signal: "dashboards / portals",
+    accent: "admin",
+  },
+  {
+    layer: "05",
+    title: "Learning memory",
+    summary: "Feedback, reviews, lessons, mistakes, and notes turned into reusable knowledge systems.",
+    signal: "MindSpan / learning maps",
+    accent: "memory",
+  },
+  {
+    layer: "06",
+    title: "Talent pipeline",
+    summary: "Hackathons, interns, embedded teams, recruitment support, and builder community.",
+    signal: "NexGen-AI / interns",
+    accent: "talent",
   },
 ];
 

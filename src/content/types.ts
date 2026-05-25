@@ -126,9 +126,20 @@ export type FlagshipProduct = {
   status: string;
   tagline: string;
   summary: string;
+  useCase: string;
+  targetUser: string;
   proof: string;
   href: string;
+  ctaLabel: string;
   accent: "flagship" | "memory" | "operations" | "community";
+};
+
+export type AISystemsStackItem = {
+  layer: string;
+  title: string;
+  summary: string;
+  signal: string;
+  accent: "data" | "agents" | "automation" | "admin" | "memory" | "talent";
 };
 
 export type EngineeringCultureItem = {
