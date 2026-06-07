@@ -1,15 +1,30 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-
-type FormState = "idle" | "submitted";
+import { FormEvent } from "react";
 
 export function ContactForm() {
-  const [state, setState] = useState<FormState>("idle");
-
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setState("submitted");
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const organization = String(formData.get("organization") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const challenge = String(formData.get("challenge") || "").trim();
+
+    const subject = `Ignitz inquiry from ${name || organization || "website visitor"}`;
+    const body = [
+      `Name: ${name}`,
+      `Work email: ${email}`,
+      `Organization: ${organization}`,
+      `Phone or WhatsApp: ${phone || "Not provided"}`,
+      "",
+      "What do you want to train, build, or staff?",
+      challenge,
+    ].join("\n");
+
+    window.location.href = `mailto:info@ignitz.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   return (
@@ -39,14 +54,9 @@ export function ContactForm() {
         <textarea name="challenge" rows={5} required />
       </label>
       <button className="button button-primary" type="submit">
-        Submit inquiry
+        Open email draft
       </button>
-      {state === "submitted" ? (
-        <p className="form-note" role="status">
-          Thanks. This v1 form is wired as a frontend placeholder; connect it to
-          a CRM, email endpoint, or form service before production launch.
-        </p>
-      ) : null}
+      <p className="form-note">This opens your email app with the inquiry details prefilled.</p>
     </form>
   );
 }

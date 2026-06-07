@@ -527,7 +527,7 @@ export const faqs: FAQItem[] = [
   {
     question: "Are the client logos and metrics final?",
     answer:
-      "No. V1 keeps proof content in structured placeholders until approved customer logos, testimonials, and outcome metrics are available.",
+      "Approved proof content will replace structured placeholders once customer logos, testimonials, and outcome metrics are available.",
   },
 ];
 

@@ -2,7 +2,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata(
   "Terms of Use | Ignitz",
-  "Placeholder terms of use for the Ignitz website.",
+  "Terms of use information for the Ignitz website.",
   "/terms",
 );
 
@@ -12,8 +12,9 @@ export default function TermsPage() {
       <p className="eyebrow">Legal</p>
       <h1>Terms of Use</h1>
       <p>
-        This is placeholder legal copy. Replace it with reviewed terms before
-        launch, including acceptable use, liability, ownership, and jurisdiction.
+        The final terms of use are being prepared for launch. If you need
+        commercial, delivery, or ownership details before then, contact
+        info@ignitz.net.
       </p>
     </main>
   );
