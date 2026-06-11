@@ -8,7 +8,7 @@ export const metadata = pageMetadata(
 
 export default function PrivacyPage() {
   return (
-    <main className="legal-page">
+    <main className="platform-legal-page">
       <p className="eyebrow">Legal</p>
       <h1>Privacy Policy</h1>
       <p>

@@ -21,7 +21,7 @@ export function Header() {
         ))}
       </nav>
       <Link className="header-cta" href="/contact">
-        Contact
+        Build with Ignitz
       </Link>
       <button
         className="menu-button"
@@ -41,7 +41,7 @@ export function Header() {
           </Link>
         ))}
         <Link className="button button-primary" href="/contact" onClick={() => setOpen(false)}>
-          Contact the team
+          Build with Ignitz
         </Link>
       </div>
     </header>

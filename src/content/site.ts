@@ -3,11 +3,14 @@ import type {
   BrandNarrative,
   CaseStudyCard,
   CapabilityNode,
+  CompanySignal,
   ContactChannel,
   Division,
   EngineeringCultureItem,
   FAQItem,
   FlagshipProduct,
+  HomepagePlatformPillar,
+  HomepageProofStory,
   IndustryCard,
   InsightCard,
   KnowledgeGraphEdge,
@@ -18,6 +21,7 @@ import type {
   ProcessStep,
   ProofMetric,
   CommunitySignal,
+  RecognitionSignal,
   ServicePillar,
 } from "./types";
 
@@ -33,11 +37,11 @@ export const site = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "Labs", href: "/labs" },
-  { label: "Business Systems", href: "/business-systems" },
-  { label: "Health", href: "/health" },
-  { label: "Blogs", href: "/blogs" },
-  { label: "Team", href: "/team" },
+  { label: "Platform", href: "/labs" },
+  { label: "Solutions", href: "/business-systems" },
+  { label: "Products", href: "/ai-products" },
+  { label: "Resources", href: "/blogs" },
+  { label: "Company", href: "/team" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -50,26 +54,26 @@ export const proofMetrics: ProofMetric[] = [
 
 export const brandNarrative: BrandNarrative = {
   eyebrow: "Microsoft for Startups-backed AI systems company",
-  title: "Ignitz builds AI systems for modern operations.",
+  title: "AI systems your teams can actually run.",
   lead:
-    "Productized AI, business operations, healthcare workflows, and learning systems built as practical infrastructure.",
+    "Ignitz connects workflows, data, AI products, and capability transfer into one operating layer for teams that need production outcomes, not another disconnected tool.",
   primaryCta: { label: "Build with Ignitz", href: "/contact" },
-  secondaryCta: { label: "Explore the system", href: "#capability-architecture" },
+  secondaryCta: { label: "Explore the platform", href: "#capability-architecture" },
   signals: [
-    "AI consulting and engineering",
-    "Business transformation platforms",
-    "Healthcare applications",
-    "Hackathons and incubation",
+    "Workflow",
+    "Data",
+    "AI system",
+    "Operating memory",
   ],
 };
 
 export const heroTypingPhrases = [
-  "healthcare",
   "business operations",
-  "consulting teams",
-  "training programs",
-  "recruitment pipelines",
+  "healthcare workflows",
   "AI products",
+  "enterprise teams",
+  "learning systems",
+  "automation programs",
 ];
 
 export const knowledgeGraphNodes: KnowledgeGraphNode[] = [
@@ -173,28 +177,163 @@ export const knowledgeGraphEdges: KnowledgeGraphEdge[] = [
 
 export const platformProof: PlatformProof[] = [
   { label: "Backing", value: "Microsoft for Startups" },
-  { label: "AI stack", value: "OpenAI / Azure OpenAI" },
+  { label: "AI stack", value: "OpenAI + Azure OpenAI" },
   { label: "Product culture", value: "MindSpan + Evaluate Yourself" },
   { label: "Builder pipeline", value: "NexGen-AI Hackathon" },
+];
+
+export const companySignals: CompanySignal[] = [
+  {
+    label: "Qualcomm",
+    category: "placeholder",
+    status: "placeholder",
+    publicNote: "Draft enterprise signal reserved for later approval.",
+  },
+  {
+    label: "Shell",
+    category: "placeholder",
+    status: "placeholder",
+    publicNote: "Draft enterprise signal reserved for later approval.",
+  },
+  {
+    label: "Microsoft for Startups",
+    category: "ecosystem",
+    status: "active",
+    publicNote: "Startup ecosystem backing and cloud-aligned context.",
+  },
+  {
+    label: "OpenAI",
+    category: "platform",
+    status: "reference",
+    publicNote: "AI platform reference for agents and copilots.",
+  },
+  {
+    label: "Azure",
+    category: "platform",
+    status: "reference",
+    publicNote: "Cloud platform reference for enterprise integration.",
+  },
+  {
+    label: "Enterprise Client A",
+    category: "placeholder",
+    status: "placeholder",
+    publicNote: "Editable placeholder for an approved client name.",
+  },
+  {
+    label: "Enterprise Client B",
+    category: "placeholder",
+    status: "placeholder",
+    publicNote: "Editable placeholder for an approved client name.",
+  },
+  {
+    label: "Healthcare systems",
+    category: "audience",
+    status: "reference",
+    publicNote: "Domain focus for patient and clinic workflows.",
+  },
+  {
+    label: "Operations teams",
+    category: "audience",
+    status: "reference",
+    publicNote: "Buyer context for workflow automation and dashboards.",
+  },
+];
+
+export const homepagePlatformPillars: HomepagePlatformPillar[] = [
+  {
+    eyebrow: "01 / Find",
+    title: "See the real workflow",
+    summary: "Map the owner, decision, data source, exception, and handoff before a single AI surface is built.",
+    signal: "Workflow graph",
+    accent: "blue",
+  },
+  {
+    eyebrow: "02 / Build",
+    title: "Turn context into systems",
+    summary: "Create copilots, dashboards, portals, agents, and automations around the way the team actually works.",
+    signal: "AI product layer",
+    accent: "orange",
+  },
+  {
+    eyebrow: "03 / Run",
+    title: "Transfer the capability",
+    summary: "Ship with review loops, operating memory, training, and admin controls so the team can keep improving.",
+    signal: "Operating memory",
+    accent: "green",
+  },
+];
+
+export const homepageProofStories: HomepageProofStory[] = [
+  {
+    label: "Enterprise systems",
+    title: "From scattered intake to governed AI work.",
+    summary: "For operations teams, Ignitz frames intake, documents, CRM context, AI action, and approval into one usable workspace.",
+    meta: "Placeholder proof pattern",
+    href: "/business-systems",
+    accent: "enterprise",
+  },
+  {
+    label: "AI products",
+    title: "Product surfaces that prove the platform model.",
+    summary: "Evaluate Yourself, MindSpan, and internal build tools show how Ignitz turns learning and workflow problems into product systems.",
+    meta: "Product direction",
+    href: "/ai-products",
+    accent: "product",
+  },
+  {
+    label: "Capability transfer",
+    title: "Training, delivery, and builder pipelines work together.",
+    summary: "Corporate programs, hackathons, interns, and embedded teams become the adoption engine behind production AI systems.",
+    meta: "Builder ecosystem",
+    href: "/training",
+    accent: "learning",
+  },
+];
+
+export const recognitionSignals: RecognitionSignal[] = [
+  {
+    label: "Ecosystem",
+    value: "Microsoft for Startups",
+    summary: "Startup ecosystem backing for the Ignitz platform story and cloud-aligned delivery motion.",
+    status: "active",
+  },
+  {
+    label: "AI stack",
+    value: "OpenAI + Azure",
+    summary: "Reference stack for agents, copilots, retrieval, Realtime interfaces, and workflow automation.",
+    status: "reference",
+  },
+  {
+    label: "Delivery base",
+    value: "Hyderabad",
+    summary: "A practical engineering base for product builds, operations systems, training, and delivery pods.",
+    status: "draft",
+  },
+  {
+    label: "Product proof",
+    value: "Systems in motion",
+    summary: "Evaluate Yourself, MindSpan, Storefront OS, and NexGen-AI show the product direction.",
+    status: "active",
+  },
 ];
 
 export const capabilityNodes: CapabilityNode[] = [
   {
     label: "01",
-    title: "Strategy",
-    summary: "Find the business workflow, user behavior, and operating gap worth solving.",
+    title: "Platform strategy",
+    summary: "Identify the operating workflow, governance boundary, and AI use case worth productionizing.",
     accent: "strategy",
   },
   {
     label: "02",
-    title: "Data",
-    summary: "Shape the pipelines, knowledge sources, and cloud foundation that make AI dependable.",
+    title: "Data foundation",
+    summary: "Shape the knowledge sources, retrieval paths, and cloud patterns that make AI dependable.",
     accent: "data",
   },
   {
     label: "03",
     title: "AI Systems",
-    summary: "Build agents, copilots, RAG flows, Realtime interfaces, and workflow automation.",
+    summary: "Build agents, copilots, RAG flows, Realtime interfaces, and governed automation.",
     accent: "systems",
   },
   {
@@ -205,8 +344,8 @@ export const capabilityNodes: CapabilityNode[] = [
   },
   {
     label: "05",
-    title: "Learning Memory",
-    summary: "Convert feedback, mistakes, reviews, and experiments into reusable engineering knowledge.",
+    title: "Capability transfer",
+    summary: "Turn feedback, reviews, and delivery lessons into reusable operating knowledge.",
     accent: "memory",
   },
 ];
@@ -215,9 +354,9 @@ export const flagshipProducts: FlagshipProduct[] = [
   {
     name: "Evaluate Yourself",
     status: "Flagship product in progress",
-    tagline: "A practical self-evaluation system for modern learners and teams.",
+    tagline: "Structured self-evaluation for learners, interns, and capability teams.",
     summary:
-      "Evaluate Yourself will become a flagship Ignitz product: a focused platform for assessment, feedback, progress visibility, and learning accountability.",
+      "Evaluate Yourself is a focused platform direction for assessment, feedback, progress visibility, and learning accountability.",
     useCase: "Assessment, feedback, progress visibility, and learner accountability.",
     targetUser: "Students, interns, training cohorts, and capability teams.",
     proof: "Designed as a product, not a campaign page.",
@@ -230,7 +369,7 @@ export const flagshipProducts: FlagshipProduct[] = [
     status: "Knowledge infrastructure",
     tagline: "See the spread of your thinking.",
     summary:
-      "A Markdown-based knowledge bandwidth visualizer that turns notes, review comments, mistakes, and lessons into a living map of growth.",
+      "A Markdown-based knowledge bandwidth visualizer that turns notes, reviews, mistakes, and lessons into a living growth map.",
     useCase: "Engineering memory, review learning, cognitive maps, and knowledge growth.",
     targetUser: "Builders, reviewers, mentors, and AI-assisted engineering teams.",
     proof: "Shows Ignitz's belief that learning should compound.",
@@ -241,9 +380,9 @@ export const flagshipProducts: FlagshipProduct[] = [
   {
     name: "Storefront OS",
     status: "Business systems direction",
-    tagline: "Operations infrastructure for traditional businesses.",
+    tagline: "Operations infrastructure for teams that need control.",
     summary:
-      "Dynamic storefronts, admin dashboards, inventory-aware workflows, reports, CSV exports, and operational control without constant developer dependency.",
+      "Dynamic storefronts, admin dashboards, inventory-aware workflows, reports, exports, and operating control without constant developer dependency.",
     useCase: "Storefronts, admin systems, reports, dashboards, and workflow control.",
     targetUser: "Business owners and operators who need self-managed systems.",
     proof: "Business owners should control daily operations.",
@@ -256,7 +395,7 @@ export const flagshipProducts: FlagshipProduct[] = [
     status: "Builder pipeline",
     tagline: "AI learning through rapid product building.",
     summary:
-      "Hackathons are treated as capability accelerators: Azure/OpenAI tooling, mentorship, incubation opportunities, and exposure to real AI workflows.",
+      "Hackathons are treated as capability accelerators: Azure/OpenAI tooling, mentorship, incubation paths, and exposure to real AI workflows.",
     useCase: "Rapid prototypes, AI upskilling, mentorship, and product discovery.",
     targetUser: "Students, interns, campus builders, and future founders.",
     proof: "A pipeline for students, builders, and future founders.",
@@ -269,22 +408,22 @@ export const flagshipProducts: FlagshipProduct[] = [
 export const aiSystemsStack: AISystemsStackItem[] = [
   {
     layer: "01",
-    title: "Data layer",
-    summary: "Knowledge sources, structured data, operational records, and retrieval-ready foundations.",
+    title: "Data foundation",
+    summary: "Knowledge sources, structured records, operating data, and retrieval-ready foundations.",
     signal: "RAG / databases / cloud",
     accent: "data",
   },
   {
     layer: "02",
     title: "AI agents",
-    summary: "Copilots, assistants, Realtime interfaces, and OpenAI/Azure OpenAI-powered workflows.",
+    summary: "Copilots, assistants, Realtime interfaces, and OpenAI/Azure OpenAI workflows.",
     signal: "agents / copilots / realtime",
     accent: "agents",
   },
   {
     layer: "03",
     title: "Workflow automation",
-    summary: "Business rules, handoffs, reporting loops, notifications, and process acceleration.",
+    summary: "Business rules, handoffs, reporting loops, notifications, and governed acceleration.",
     signal: "automation / integrations",
     accent: "automation",
   },
@@ -297,8 +436,8 @@ export const aiSystemsStack: AISystemsStackItem[] = [
   },
   {
     layer: "05",
-    title: "Learning memory",
-    summary: "Feedback, reviews, lessons, mistakes, and notes turned into reusable knowledge systems.",
+    title: "Capability memory",
+    summary: "Feedback, reviews, lessons, mistakes, and notes turned into reusable team knowledge.",
     signal: "MindSpan / learning maps",
     accent: "memory",
   },
@@ -332,19 +471,19 @@ export const engineeringCulture: EngineeringCultureItem[] = [
 
 export const communitySignals: CommunitySignal[] = [
   {
-    label: "Students",
-    title: "Talent exists everywhere.",
-    summary: "Ignitz creates exposure, mentorship, and real product-building opportunities for students and young engineers.",
+    label: "Talent",
+    title: "Build capability where delivery happens.",
+    summary: "Ignitz creates exposure, mentorship, and product-building opportunities for students and young engineers.",
   },
   {
     label: "Hackathons",
-    title: "Build first, learn fast.",
+    title: "Prototype with production habits.",
     summary: "NexGen-AI turns Azure/OpenAI resources and mentor feedback into practical AI prototypes.",
   },
   {
     label: "Incubation",
-    title: "Ideas become deployable products.",
-    summary: "Internal R&D, product experiments, and founder-led building turn lessons into reusable systems.",
+    title: "Turn experiments into reusable IP.",
+    summary: "Internal R&D, product experiments, and founder-led building convert lessons into reusable systems.",
   },
 ];
 
@@ -527,7 +666,7 @@ export const faqs: FAQItem[] = [
   {
     question: "Are the client logos and metrics final?",
     answer:
-      "Approved proof content will replace structured placeholders once customer logos, testimonials, and outcome metrics are available.",
+      "Client names, logos, testimonials, and outcome metrics are only published through approved proof patterns.",
   },
 ];
 

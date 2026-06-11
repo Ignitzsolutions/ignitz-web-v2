@@ -158,6 +158,53 @@ export type PlatformProof = {
   value: string;
 };
 
+export type RecognitionSignal = {
+  label: string;
+  value: string;
+  summary: string;
+  status: "active" | "reference" | "draft";
+};
+
+export type HomepagePlatformPillar = {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  signal: string;
+  accent: "blue" | "orange" | "green" | "navy";
+};
+
+export type HomepageProofStory = {
+  label: string;
+  title: string;
+  summary: string;
+  meta: string;
+  href: string;
+  accent: "enterprise" | "product" | "learning";
+};
+
+export type CompanySignal =
+  | {
+      label: string;
+      category: "placeholder" | "ecosystem" | "platform" | "audience";
+      status: "placeholder" | "active" | "reference";
+      publicNote: string;
+      href?: string;
+      logo?: never;
+    }
+  | {
+      label: string;
+      category: "ecosystem" | "platform" | "audience";
+      status: "approved";
+      publicNote: string;
+      href?: string;
+      logo?: {
+        src: string;
+        alt: string;
+        width?: number;
+        height?: number;
+      };
+    };
+
 export type MarketingPage = {
   slug: string;
   hero: PageHero;

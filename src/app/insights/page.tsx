@@ -1,5 +1,6 @@
-import { PageRenderer } from "@/components/PageRenderer";
+import { PlatformRoutePage } from "@/components/PlatformRoutePage";
 import { pages } from "@/content/pages";
+import { insights } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 const page = {
@@ -21,5 +22,24 @@ const page = {
 export const metadata = pageMetadata(page.title, page.description, "/insights");
 
 export default function InsightsPage() {
-  return <PageRenderer page={page} insightList />;
+  return (
+    <PlatformRoutePage
+      page={page}
+      variant="insights"
+      panel={{
+        label: "Knowledge system",
+        title: "Field notes for teams turning AI into operating capability.",
+        body:
+          "Insights are presented as practical decision notes, not a loose blog shelf, so the resource section feels connected to the platform.",
+        metric: "3 themes",
+        meta: "Learning / product / delivery",
+      }}
+      signals={[
+        { label: "Theme", value: "AI delivery", note: "How pilots become products and products become systems." },
+        { label: "Theme", value: "Corporate learning", note: "Training tied to practice environments and decision rights." },
+        { label: "Theme", value: "Expert pods", note: "When embedded specialists help teams move faster." },
+      ]}
+      insights={insights}
+    />
+  );
 }
