@@ -12,7 +12,8 @@ type GraphProps = {
 
 export function InteractiveHeroGraph({ nodes, edges }: GraphProps) {
   const centerNode = nodes.find((node) => node.id === "ignitz") ?? nodes[0];
-  const [activeId, setActiveId] = useState(centerNode?.id ?? "");
+  const centerId = centerNode?.id ?? "";
+  const [activeId, setActiveId] = useState(centerId);
 
   const nodeMap = useMemo(
     () => new Map(nodes.map((node) => [node.id, node])),
@@ -25,9 +26,47 @@ export function InteractiveHeroGraph({ nodes, edges }: GraphProps) {
     return edge.from === activeId || edge.to === activeId;
   }
 
+  function activateNode(nodeId: string) {
+    setActiveId((currentId) => (currentId === nodeId ? currentId : nodeId));
+  }
+
+  function resetActiveNode() {
+    activateNode(centerId);
+  }
+
+  function getDetailLabel(node: KnowledgeGraphNode) {
+    if (node.group === "core") {
+      return "Operating center";
+    }
+
+    if (node.group === "labs") {
+      return "Product lab";
+    }
+
+    if (node.group === "business") {
+      return "Enterprise system";
+    }
+
+    if (node.group === "health") {
+      return "Healthcare system";
+    }
+
+    if (node.group === "learning") {
+      return "Capability transfer";
+    }
+
+    return "Embedded talent";
+  }
+
   return (
-    <div className="hero-graph" aria-label="Ignitz knowledge graph">
-      <div className="hero-graph-canvas" onMouseLeave={() => setActiveId(centerNode.id)}>
+    <div
+      aria-label="Ignitz intelligence map"
+      className="hero-graph"
+    >
+      <p className="graph-instruction" id="hero-graph-instruction">
+        Hover or focus a node to inspect the Ignitz system.
+      </p>
+      <div className="hero-graph-canvas" onMouseLeave={resetActiveNode}>
         <svg className="graph-lines" viewBox="0 0 100 100" aria-hidden="true">
           {edges.map((edge) => {
             const from = nodeMap.get(edge.from);
@@ -69,14 +108,14 @@ export function InteractiveHeroGraph({ nodes, edges }: GraphProps) {
             return (
               <Link
                 aria-label={`${node.label}: ${node.summary}`}
+                aria-describedby="hero-graph-instruction"
                 className={className}
                 href={node.href}
                 key={node.id}
-                onBlur={() => setActiveId(centerNode.id)}
-                onFocus={() => setActiveId(node.id)}
-                onMouseEnter={() => setActiveId(node.id)}
-                onMouseMove={() => setActiveId(node.id)}
-                onPointerEnter={() => setActiveId(node.id)}
+                onBlur={resetActiveNode}
+                onFocus={() => activateNode(node.id)}
+                onMouseEnter={() => activateNode(node.id)}
+                onPointerEnter={() => activateNode(node.id)}
                 style={style}
               >
                 {content}
@@ -87,13 +126,13 @@ export function InteractiveHeroGraph({ nodes, edges }: GraphProps) {
           return (
             <button
               aria-label={`${node.label}: ${node.summary}`}
+              aria-describedby="hero-graph-instruction"
               className={className}
               key={node.id}
-              onBlur={() => setActiveId(centerNode.id)}
-              onFocus={() => setActiveId(node.id)}
-              onMouseEnter={() => setActiveId(node.id)}
-              onMouseMove={() => setActiveId(node.id)}
-              onPointerEnter={() => setActiveId(node.id)}
+              onBlur={resetActiveNode}
+              onFocus={() => activateNode(node.id)}
+              onMouseEnter={() => activateNode(node.id)}
+              onPointerEnter={() => activateNode(node.id)}
               style={style}
               type="button"
             >
@@ -101,24 +140,28 @@ export function InteractiveHeroGraph({ nodes, edges }: GraphProps) {
             </button>
           );
         })}
-        <div className="graph-orbit-label graph-orbit-label-top">Capability graph</div>
-        <div className="graph-orbit-label graph-orbit-label-bottom">Ignitz as centroid</div>
+        <div className="graph-orbit-label graph-orbit-label-top">Intelligence map</div>
+        <div className="graph-orbit-label graph-orbit-label-bottom">Ignitz operating center</div>
       </div>
       {activeNode ? (
         <aside className={`graph-detail graph-detail-${activeNode.group}`} aria-live="polite">
-          <span>{activeNode.group === "core" ? "Centroid" : activeNode.group}</span>
+          <span>{getDetailLabel(activeNode)}</span>
           <strong>{activeNode.label}</strong>
           <p>{activeNode.summary}</p>
         </aside>
       ) : null}
-      <div className="hero-graph-list" aria-label="Ignitz graph nodes">
+      <div className="hero-graph-list" aria-label="Ignitz graph nodes" onMouseLeave={resetActiveNode}>
         {nodes
-          .filter((node) => node.id !== "ignitz")
+          .filter((node) => node.group !== "core")
           .map((node) => (
             <Link
-              className={`graph-list-row graph-list-${node.group}`}
+              className={`graph-list-row graph-list-${node.group}${activeNode?.id === node.id ? " is-active" : ""}`}
               href={node.href ?? "/"}
               key={node.id}
+              onBlur={resetActiveNode}
+              onFocus={() => activateNode(node.id)}
+              onMouseEnter={() => activateNode(node.id)}
+              onPointerEnter={() => activateNode(node.id)}
             >
               <span>{node.label}</span>
               <p>{node.summary}</p>

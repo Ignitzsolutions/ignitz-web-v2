@@ -8,7 +8,7 @@ export const metadata = pageMetadata(
 
 export default function AccessibilityPage() {
   return (
-    <main className="legal-page">
+    <main className="platform-legal-page">
       <p className="eyebrow">Accessibility</p>
       <h1>Accessibility Statement</h1>
       <p>

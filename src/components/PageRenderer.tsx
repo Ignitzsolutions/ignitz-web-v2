@@ -10,7 +10,6 @@ import {
   OutcomeProof,
   PillarEditorial,
   PrecisionHome,
-  SectionHeading,
   StickyProcess,
 } from "./Sections";
 
@@ -39,8 +38,10 @@ export function PageRenderer({
     <main>
       <Hero page={page} home={home} />
       {page.sections.intro ? (
-        <section className="intro-section">
+        <section className="platform-intro-ribbon" aria-label={`${page.hero.eyebrow ?? page.title} brief`}>
+          <span>Platform brief</span>
           <p>{page.sections.intro}</p>
+          <strong>{page.hero.lead}</strong>
         </section>
       ) : null}
       {!home && page.sections.pillars ? <PillarEditorial items={page.sections.pillars} /> : null}
@@ -58,15 +59,15 @@ export function PageRenderer({
 
 function InsightsGrid() {
   return (
-    <section className="section">
-      <SectionHeading
-        eyebrow="Insights"
-        title="Perspectives on AI delivery and corporate learning."
-        lead="Use these cards as the launch structure for article pages, downloadable briefs, and SEO topic clusters."
-      />
-      <div className="insight-grid">
+    <section className="platform-insight-room">
+      <div className="platform-section-intro compact">
+        <p className="eyebrow">Insights</p>
+        <h2>Perspectives on AI delivery and corporate learning.</h2>
+        <p>Article pages, downloadable briefs, and SEO topic clusters can grow from this room.</p>
+      </div>
+      <div className="insight-room-grid">
         {insights.map((item) => (
-          <article className="insight-card" key={item.title}>
+          <article className="insight-room-card" key={item.title}>
             <span>{item.topic}</span>
             <h3>{item.title}</h3>
             <time dateTime={item.date}>{item.date}</time>

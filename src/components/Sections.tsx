@@ -4,16 +4,14 @@ import {
   brandNarrative,
   capabilityNodes,
   caseStudies,
-  communitySignals,
+  companySignals,
   contactChannels,
   divisions,
   flagshipProducts,
+  homepagePlatformPillars,
+  homepageProofStories,
   heroTypingPhrases,
-  knowledgeGraphEdges,
-  knowledgeGraphNodes,
-  platformProof,
   proofMetrics,
-  site,
 } from "@/content/site";
 import type {
   CTA,
@@ -28,7 +26,6 @@ import { ContactForm } from "./ContactForm";
 import { FAQAccordion } from "./FAQAccordion";
 import { BrandLogo } from "./BrandLogo";
 import { HeroTypingText } from "./HeroTypingText";
-import { InteractiveHeroGraph } from "./InteractiveHeroGraph";
 
 function ButtonLink({ cta }: { cta: CTA }) {
   const className =
@@ -49,19 +46,23 @@ export function PrecisionHome() {
   return (
     <>
       <PrecisionHero />
-      <PrecisionTrustStrip />
-      <FlagshipProducts />
-      <AISystemsStack />
+      <ClientSignalStrip />
+      <HomepageConsoleShowcase />
+      <PlatformOperatingSystem />
       <CapabilityArchitecture />
-      <CommunityPipeline />
+      <HomepageProofStories />
+      <AISystemsStack />
+      <FlagshipProducts />
       <SystemsCTA />
     </>
   );
 }
 
 function PrecisionHero() {
+  const publicSignals = companySignals.filter((signal) => signal.status !== "placeholder");
+
   return (
-    <section className="precision-hero">
+    <section className="precision-hero platform-home-hero">
       <div className="precision-hero-copy reveal">
         <p className="eyebrow">{brandNarrative.eyebrow}</p>
         <h1>
@@ -72,32 +73,193 @@ function PrecisionHero() {
           <HeroTypingText phrases={heroTypingPhrases} />
         </div>
         <p>{brandNarrative.lead}</p>
+        <form className="hero-email-capture" action="/contact">
+          <label className="sr-only" htmlFor="home-work-email">
+            Work email
+          </label>
+          <input id="home-work-email" name="workEmail" placeholder="Your work email here" type="email" />
+          <button type="submit">Build with Ignitz</button>
+        </form>
+        <ul className="hero-signal-list" aria-label="Ignitz operating signals">
+          {brandNarrative.signals.map((signal) => (
+            <li className="hero-signal" key={signal}>
+              {signal}
+            </li>
+          ))}
+        </ul>
         <div className="hero-actions">
-          <ButtonLink cta={brandNarrative.primaryCta} />
           <ButtonLink cta={{ ...brandNarrative.secondaryCta, variant: "secondary" }} />
         </div>
+        <div className="mobile-hero-proof" aria-label="Ignitz proof signals">
+          {publicSignals.slice(0, 5).map((signal) => (
+            <span key={`mobile-${signal.label}`}>{signal.label}</span>
+          ))}
+        </div>
       </div>
-      <InteractiveHeroGraph nodes={knowledgeGraphNodes} edges={knowledgeGraphEdges} />
     </section>
   );
 }
 
-function PrecisionTrustStrip() {
+function HomepageConsoleShowcase() {
   return (
-    <section className="precision-proof" aria-label="Ignitz proof signals">
-      {platformProof.map((item) => (
-        <article key={item.label}>
-          <span>{item.label}</span>
-          <strong>{item.value}</strong>
-        </article>
-      ))}
+    <section className="homepage-console-showcase" aria-labelledby="homepage-console-title">
+      <div className="console-showcase-copy">
+        <p className="eyebrow">Platform preview</p>
+        <h2 id="homepage-console-title">The operating board lives after the promise.</h2>
+        <p>
+          First we make the value clear. Then the preview shows how Ignitz turns workflow
+          context, AI action, review, stack, and outcomes into one running system.
+        </p>
+      </div>
+      <HeroOperatingBoard />
+    </section>
+  );
+}
+
+function HeroOperatingBoard() {
+  const navItems = ["Intake", "Knowledge", "Agents", "Review", "Memory"];
+  const tasks = [
+    { label: "CRM account context", status: "Synced" },
+    { label: "Proposal draft agent", status: "Running" },
+    { label: "Manager approval", status: "Queued" },
+  ];
+  const integrations = ["OpenAI", "Azure", "Docs", "CRM"];
+  const outcomeRows = [
+    { label: "Manual steps", value: "-38%" },
+    { label: "Review path", value: "Mapped" },
+    { label: "Reusable playbook", value: "Ready" },
+  ];
+
+  return (
+    <aside className="hero-operating-board hero-product-platform" aria-label="Ignitz AI product console preview">
+      <div className="product-console-sidebar">
+        <span>Ignitz</span>
+        {navItems.map((item, index) => (
+          <b className={index === 2 ? "is-active" : undefined} key={item}>
+            {item}
+          </b>
+        ))}
+      </div>
+      <div className="product-console-main">
+        <div className="product-console-topline">
+          <div>
+            <span>Active AI system</span>
+            <strong>Proposal Intelligence Workspace</strong>
+          </div>
+          <small>Live</small>
+        </div>
+        <div className="product-console-grid">
+          <section className="console-workflow-card" aria-label="Workflow state">
+            <span>Workflow</span>
+            <h3>Sales intake to approved proposal</h3>
+            <div className="workflow-path" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+              <i />
+            </div>
+          </section>
+          <section className="console-task-list" aria-label="AI system tasks">
+            {tasks.map((task) => (
+              <article key={task.label}>
+                <span>{task.label}</span>
+                <strong>{task.status}</strong>
+              </article>
+            ))}
+          </section>
+          <section className="console-policy-card" aria-label="Review and policy">
+            <span>Review policy</span>
+            <strong>Human approval before client send</strong>
+            <p>Owners, source context, generated drafts, and decision notes stay attached.</p>
+          </section>
+          <section className="console-integrations" aria-label="Connected platforms">
+            <span>Connected stack</span>
+            <div>
+              {integrations.map((item) => (
+                <b key={item}>{item}</b>
+              ))}
+            </div>
+          </section>
+          <section className="console-outcomes" aria-label="Operating outcomes">
+            {outcomeRows.map((row) => (
+              <article key={row.label}>
+                <span>{row.label}</span>
+                <strong>{row.value}</strong>
+              </article>
+            ))}
+          </section>
+        </div>
+      </div>
+    </aside>
+  );
+}
+
+function PlatformOperatingSystem() {
+  return (
+    <section className="homepage-platform-system" id="capability-architecture">
+      <div className="platform-system-copy">
+        <p className="eyebrow">Ignitz platform</p>
+        <h2>One AI operating layer for work, product, and capability.</h2>
+        <p>
+          Ignitz turns scattered workflows, data sources, AI actions, approvals, and
+          training memory into production systems your team can keep running.
+        </p>
+      </div>
+      <div className="platform-system-stage" aria-label="Ignitz platform operating system">
+        <div className="platform-system-orbit" aria-hidden="true">
+          <span>Data</span>
+          <span>Agents</span>
+          <span>Ops</span>
+          <span>Memory</span>
+        </div>
+        <div className="platform-system-panel">
+          <span>Live system model</span>
+          <strong>Workflow → AI product → operating memory</strong>
+          <p>Every engagement is shaped as a system your team can inspect, use, and keep improving.</p>
+        </div>
+        <div className="platform-pillar-grid">
+          {homepagePlatformPillars.map((pillar) => (
+            <article className={`platform-pillar pillar-${pillar.accent}`} key={pillar.title}>
+              <span>{pillar.eyebrow}</span>
+              <h3>{pillar.title}</h3>
+              <p>{pillar.summary}</p>
+              <small>{pillar.signal}</small>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HomepageProofStories() {
+  return (
+    <section className="homepage-proof-stories">
+      <div className="proof-stories-heading">
+        <p className="eyebrow">Proof patterns</p>
+        <h2>Built like customer stories, editable until real approvals arrive.</h2>
+        <p>
+          Enterprise names stay as draft signals until approved. The proof pattern is ready
+          for real customers, product launches, and measurable delivery outcomes.
+        </p>
+      </div>
+      <div className="proof-story-grid">
+        {homepageProofStories.map((story) => (
+          <Link className={`proof-story-card story-${story.accent}`} href={story.href} key={story.title}>
+            <span>{story.label}</span>
+            <h3>{story.title}</h3>
+            <p>{story.summary}</p>
+            <small>{story.meta}</small>
+          </Link>
+        ))}
+      </div>
     </section>
   );
 }
 
 function CapabilityArchitecture() {
   return (
-    <section className="precision-section capability-architecture" id="capability-architecture">
+    <section className="precision-section capability-architecture" id="system-map">
       <div className="precision-section-heading">
         <p className="eyebrow">Capability architecture</p>
         <h2>Ignitz connects strategy, data, AI systems, operations, and learning memory.</h2>
@@ -120,43 +282,71 @@ function CapabilityArchitecture() {
 }
 
 function FlagshipProducts() {
+  const [featuredProduct, ...supportingProducts] = flagshipProducts;
+
   return (
-    <section className="precision-section flagship-products">
+    <section className="precision-section flagship-products product-proof-lab">
       <div className="precision-section-heading">
-        <p className="eyebrow">Product proof</p>
-        <h2>Products and systems that make the Ignitz operating model tangible.</h2>
+        <p className="eyebrow">Use-case proof</p>
+        <h2>How the Ignitz platform turns workflows into systems.</h2>
         <p>
-          Evaluate Yourself leads the roadmap. MindSpan, Storefront OS, and NexGen-AI show how
-          Ignitz turns learning, operations, and community into reusable product capability.
+          Products, internal systems, and community programs become proof paths for the same
+          platform discipline: discover the work, build the system, run the memory.
         </p>
       </div>
-      <div className="flagship-list">
-        {flagshipProducts.map((product, index) => (
+      <div className="product-proof-board">
+        {featuredProduct ? (
           <Link
-            className={`flagship-row flagship-${product.accent}`}
-            href={product.href}
-            key={product.name}
+            className={`product-proof-feature flagship-${featuredProduct.accent}`}
+            href={featuredProduct.href}
           >
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <div className="flagship-main">
-              <small>{product.status}</small>
-              <h3>{product.name}</h3>
-              <strong>{product.tagline}</strong>
+            <span>Featured proof path</span>
+            <h3>{featuredProduct.name}</h3>
+            <strong>{featuredProduct.tagline}</strong>
+            <p>{featuredProduct.summary}</p>
+            <div className="product-proof-feature-grid">
+              <article>
+                <small>Workflow</small>
+                <b>{featuredProduct.useCase}</b>
+              </article>
+              <article>
+                <small>Audience</small>
+                <b>{featuredProduct.targetUser}</b>
+              </article>
             </div>
-            <div className="flagship-meta">
-              <span>Use case</span>
-              <p>{product.useCase}</p>
-            </div>
-            <div className="flagship-meta">
-              <span>Designed for</span>
-              <p>{product.targetUser}</p>
-            </div>
-            <em>
-              {product.proof}
-              <b>{product.ctaLabel}</b>
-            </em>
+            <em>{featuredProduct.ctaLabel}</em>
           </Link>
-        ))}
+        ) : null}
+        <div className="product-system-map" aria-label="Ignitz product proof map">
+          <span className="product-map-node product-map-core">Ignitz graph</span>
+          <span className="product-map-node product-map-one">Learning</span>
+          <span className="product-map-node product-map-two">Operations</span>
+          <span className="product-map-node product-map-three">Community</span>
+          <i className="product-map-line product-map-line-one" />
+          <i className="product-map-line product-map-line-two" />
+          <i className="product-map-line product-map-line-three" />
+        </div>
+        <div className="flagship-list product-proof-grid">
+          {supportingProducts.map((product, index) => (
+            <Link
+              className={`flagship-row product-proof-tile flagship-${product.accent}`}
+              href={product.href}
+              key={product.name}
+            >
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div className="flagship-main">
+                <small>{product.status}</small>
+                <h3>{product.name}</h3>
+                <strong>{product.tagline}</strong>
+              </div>
+              <p>{product.summary}</p>
+              <em>
+                {product.proof}
+                <b>{product.ctaLabel}</b>
+              </em>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -164,17 +354,22 @@ function FlagshipProducts() {
 
 function AISystemsStack() {
   return (
-    <section className="precision-section ai-stack-section">
+    <section className="precision-section ai-stack-section ai-architecture-board">
       <div className="stack-shell">
         <div className="stack-intro">
-          <p className="eyebrow">AI systems stack</p>
-          <h2>From data layer to talent pipeline, Ignitz builds the operating surface.</h2>
+          <p className="eyebrow">Platform architecture</p>
+          <h2>The layers behind every Ignitz AI system.</h2>
           <p>
-            The stack is intentionally practical: the parts a business needs to control,
-            automate, learn from, and scale with AI.
+            The platform is intentionally practical: data, agents, automation, admin control,
+            memory, and talent capacity arranged around real workflows.
           </p>
         </div>
-        <div className="stack-list">
+        <div className="stack-core-visual" aria-hidden="true">
+          <span>Architecture map</span>
+          <strong>Workflow intelligence</strong>
+          <i />
+        </div>
+        <div className="stack-list stack-layer-grid">
           {aiSystemsStack.map((item) => (
             <article className={`stack-item stack-${item.accent}`} key={item.title}>
               <span>{item.layer}</span>
@@ -191,42 +386,46 @@ function AISystemsStack() {
   );
 }
 
-function CommunityPipeline() {
-  return (
-    <section className="precision-section community-pipeline">
-      <div className="precision-section-heading">
-        <p className="eyebrow">Community and incubation</p>
-        <h2>Ignitz is building a pipeline of students, builders, interns, and future founders.</h2>
-        <p>
-          Hackathons are not events alone. They are compressed environments for
-          upskilling, experimentation, mentorship, and product discovery.
-        </p>
-      </div>
-      <div className="community-rail">
-        {communitySignals.map((item) => (
-          <article key={item.label}>
-            <span>{item.label}</span>
-            <h3>{item.title}</h3>
-            <p>{item.summary}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function SystemsCTA() {
+  const ctaSignals = ["Map the workflow", "Design the graph", "Ship the system"];
+
   return (
-    <section className="systems-cta">
-      <p className="eyebrow">Build an AI system with Ignitz</p>
-      <h2>Bring the workflow, product idea, learning gap, or operational problem.</h2>
-      <p>
-        Ignitz will help turn it into a practical system: scoped, built, operated,
-        learned from, and improved over time.
-      </p>
-      <Link className="button button-primary" href="/contact">
-        Start the conversation
-      </Link>
+    <section className="systems-cta systems-conversion-panel">
+      <div className="systems-cta-copy">
+        <p className="eyebrow">Build an AI system with Ignitz</p>
+        <h2>Bring the workflow, product idea, learning gap, or operational problem.</h2>
+        <p>
+          Ignitz will help turn it into a practical system: scoped, built, operated,
+          learned from, and improved over time.
+        </p>
+        <div className="systems-cta-actions">
+          <Link className="button button-primary" href="/contact">
+            Start the conversation
+          </Link>
+          <Link className="button button-secondary" href="/labs">
+            Explore the platform
+          </Link>
+        </div>
+      </div>
+      <aside className="systems-cta-panel" aria-label="Ignitz briefing preview">
+        <span>Briefing path</span>
+        <strong>Discover → Build → Run</strong>
+        <form action="/contact">
+          <label htmlFor="systems-cta-email">Work email</label>
+          <div>
+            <input id="systems-cta-email" name="workEmail" placeholder="you@company.com" type="email" />
+            <button type="submit">Request briefing</button>
+          </div>
+        </form>
+        <div className="systems-cta-signals">
+          {ctaSignals.map((signal, index) => (
+            <article key={signal}>
+              <small>{String(index + 1).padStart(2, "0")}</small>
+              <b>{signal}</b>
+            </article>
+          ))}
+        </div>
+      </aside>
     </section>
   );
 }
@@ -246,9 +445,84 @@ export function Hero({ page, home = false }: { page: MarketingPage; home?: boole
             ) : null}
           </div>
         </div>
-        {home ? <SystemsMap /> : null}
+        {home ? <SystemsMap /> : <HeroPlatformPanel page={page} />}
       </div>
+      {!home ? <ClientSignalStrip /> : null}
+      {!home ? <InteriorStoryBand page={page} /> : null}
     </section>
+  );
+}
+
+function InteriorStoryBand({ page }: { page: MarketingPage }) {
+  const storyItems = [
+    { label: "Discover", body: "Map the workflow, data, users, and operating constraint behind the page." },
+    { label: "Build", body: "Turn the context into an AI product surface, automation layer, or vertical system." },
+    { label: "Run", body: "Transfer the method so the team can operate and improve the system after launch." },
+  ];
+
+  return (
+    <div className="interior-story-band" aria-label={`${page.hero.eyebrow ?? page.title} operating model`}>
+      {storyItems.map((item) => (
+        <article key={item.label}>
+          <span>{item.label}</span>
+          <p>{item.body}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function HeroPlatformPanel({ page }: { page: MarketingPage }) {
+  const activeDivision =
+    divisions.find((division) => division.href === page.slug) ??
+    divisions.find((division) => page.slug.includes(division.accent)) ??
+    divisions[0];
+
+  return (
+    <aside className={`hero-platform-panel accent-${activeDivision.accent}`} aria-label="Ignitz platform preview">
+      <div className="platform-panel-topline">
+        <span>Ignitz platform</span>
+        <strong>{activeDivision.shortName}</strong>
+      </div>
+      <div className="platform-visual-card">
+        <span className="platform-node platform-node-core">Ignitz</span>
+        <span className="platform-node platform-node-labs">Labs</span>
+        <span className="platform-node platform-node-business">Systems</span>
+        <span className="platform-node platform-node-health">Health</span>
+        <div className="platform-orbit platform-orbit-one" aria-hidden="true" />
+        <div className="platform-orbit platform-orbit-two" aria-hidden="true" />
+      </div>
+      <div className="platform-panel-metrics">
+        <article>
+          <span>Stack</span>
+          <strong>AI / Data / Ops</strong>
+        </article>
+        <article>
+          <span>Mode</span>
+          <strong>Build + transfer</strong>
+        </article>
+      </div>
+      <p>{activeDivision.proofLine}</p>
+    </aside>
+  );
+}
+
+function ClientSignalStrip() {
+  return (
+    <div className="client-signal-strip" aria-label="Ignitz ecosystem and platform signal strip">
+      <div className="client-signal-heading">
+        <span className="client-signal-label">Ecosystem, platform, and enterprise signals</span>
+        <p>A growing proof library for platform references, buyer audiences, and draft enterprise names.</p>
+      </div>
+      <div className="client-signal-track">
+        {companySignals.map((signal) => (
+          <article className={`client-signal-tile signal-${signal.status}`} key={`${signal.category}-${signal.label}`}>
+            <strong>{signal.label}</strong>
+            <span>{signal.status === "placeholder" ? "Draft placeholder" : signal.category}</span>
+          </article>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -294,15 +568,15 @@ export function ProofBand() {
 
 export function DivisionLanes({ items = divisions }: { items?: Division[] }) {
   return (
-    <section className="section division-lanes" id="divisions">
-      <SectionHeading
-        eyebrow="Company architecture"
-        title="Three operating nodes. One company intelligence layer."
-        lead="Ignitz is structured as a product lab, an operations systems unit, and a focused healthcare vertical."
-      />
-      <div className="division-lane-list">
+    <section className="platform-division-system" id="divisions">
+      <div className="platform-section-intro">
+        <p className="eyebrow">Company architecture</p>
+        <h2>Three operating nodes. One company intelligence layer.</h2>
+        <p>Ignitz is structured as a product lab, an operations systems unit, and a focused healthcare vertical.</p>
+      </div>
+      <div className="division-system-grid">
         {items.map((item, index) => (
-          <article className={`division-lane accent-${item.accent}`} key={item.name}>
+          <article className={`division-system-card accent-${item.accent}`} key={item.name}>
             <div className="division-number">{String(index + 1).padStart(2, "0")}</div>
             <div>
               <p className="kicker">{item.shortName}</p>
@@ -330,14 +604,15 @@ export function DivisionLanes({ items = divisions }: { items?: Division[] }) {
 
 export function CapabilityIndex({ items = divisions }: { items?: Division[] }) {
   return (
-    <section className="section capability-index">
-      <div className="index-intro">
+    <section className="platform-capability-index">
+      <div className="platform-section-intro compact">
         <p className="eyebrow">What Ignitz builds</p>
         <h2>Products, systems, and vertical applications that carry intelligence into daily work.</h2>
+        <p>Each route connects back to the same data, AI, operations, and capability transfer model.</p>
       </div>
-      <div className="index-rows">
+      <div className="capability-route-list">
         {items.map((item) => (
-          <Link className={`index-row accent-${item.accent}`} href={item.href} key={item.name}>
+          <Link className={`capability-route accent-${item.accent}`} href={item.href} key={item.name}>
             <span>{item.shortName}</span>
             <strong>{item.proofLine}</strong>
             <small>{item.includedCapabilities.slice(0, 3).join(" / ")}</small>
@@ -350,29 +625,34 @@ export function CapabilityIndex({ items = divisions }: { items?: Division[] }) {
 
 export function PillarEditorial({ items }: { items: ServicePillar[] }) {
   return (
-    <section className="section pillars-editorial" id="pillars">
-      <SectionHeading
-        eyebrow="Three ways to engage"
-        title="One partner for learning, product delivery, and execution capacity."
-        lead="Each offer is distinct, but the operating model is integrated: improve the team while the work moves."
-      />
-      <div className="pillar-editorial-list">
+    <section className="platform-offer-matrix" id="pillars">
+      <div className="platform-section-intro">
+        <p className="eyebrow">Platform routes</p>
+        <h2>One operating model, three ways to enter the Ignitz system.</h2>
+        <p>
+          Training, AI product development, and embedded teams are designed as connected
+          routes through the same build-and-transfer engine.
+        </p>
+      </div>
+      <div className="platform-route-grid">
         {items.map((item) => (
           <Link
-            className={`pillar-editorial-item theme-${item.sectionTheme ?? "steel"}`}
+            className={`platform-route-card theme-${item.sectionTheme ?? "steel"}`}
             href={item.href}
             key={item.title}
           >
-            <div>
+            <div className="route-card-top">
               <span className="kicker">{item.kicker}</span>
+              <small>{item.visualLabel}</small>
+            </div>
+            <div>
               <h3>{item.title}</h3>
+              <p>{item.summary}</p>
             </div>
-            <p>{item.summary}</p>
-            <div className="pillar-mark" aria-hidden="true">
-              <span>{item.visualLabel}</span>
+            <div className="route-card-proof">
               <strong>{item.stat}</strong>
+              <span>{item.proof}</span>
             </div>
-            <small>{item.proof}</small>
           </Link>
         ))}
       </div>
@@ -382,18 +662,20 @@ export function PillarEditorial({ items }: { items: ServicePillar[] }) {
 
 export function OutcomeProof({ items }: { items: OutcomeCard[] }) {
   return (
-    <section className="section outcome-proof">
-      <SectionHeading
-        eyebrow="Outcome proof"
-        title="Evidence should be readable before the meeting starts."
-        lead="The design treats proof as the product: large numbers, short claims, and no decorative noise."
-      />
-      <div className="outcome-grid">
+    <section className="platform-outcome-ledger">
+      <div className="platform-section-intro compact">
+        <p className="eyebrow">Outcome ledger</p>
+        <h2>Proof is treated as an operating artifact, not a slide afterthought.</h2>
+        <p>Every engagement needs visible evidence: timing, confidence, owner clarity, and transfer.</p>
+      </div>
+      <div className="ledger-grid">
         {items.map((item) => (
-          <article className="outcome-card" key={item.title}>
+          <article className="ledger-card" key={item.title}>
             <strong>{item.metric}</strong>
-            <h3>{item.title}</h3>
-            <p>{item.summary}</p>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.summary}</p>
+            </div>
           </article>
         ))}
       </div>
@@ -403,14 +685,18 @@ export function OutcomeProof({ items }: { items: OutcomeCard[] }) {
 
 export function StickyProcess({ items }: { items: ProcessStep[] }) {
   return (
-    <section className="section process-story">
-      <div className="process-sticky">
+    <section className="platform-process-rail">
+      <div className="platform-process-copy">
         <p className="eyebrow">How Ignitz works</p>
-        <h2>Diagnose the work. Build the capability. Transfer the method.</h2>
+        <h2>Diagnose the work, build the system, then leave capability behind.</h2>
+        <p>
+          The workflow is intentionally tight: context first, scoped build next,
+          operating transfer always included.
+        </p>
       </div>
-      <div className="process-steps">
+      <div className="process-rail">
         {items.map((item, index) => (
-          <article className="process-step" key={item.title}>
+          <article className="process-node" key={item.title}>
             <span>{String(index + 1).padStart(2, "0")}</span>
             <small>{item.kicker}</small>
             <h3>{item.title}</h3>
@@ -424,15 +710,15 @@ export function StickyProcess({ items }: { items: ProcessStep[] }) {
 
 export function IndustryIndex({ items }: { items: IndustryCard[] }) {
   return (
-    <section className="section industry-index">
-      <SectionHeading
-        eyebrow="Use-case index"
-        title="Designed for complex teams, not generic transformation copy."
-        lead="Each segment can become a deeper landing page once proof and approved examples are available."
-      />
-      <div className="industry-list">
+    <section className="platform-usecase-cloud">
+      <div className="platform-section-intro">
+        <p className="eyebrow">Use-case field</p>
+        <h2>Built for operating teams with different proof, governance, and data realities.</h2>
+        <p>Each segment can become a deeper landing page as approved proof and examples mature.</p>
+      </div>
+      <div className="usecase-cloud">
         {items.map((item) => (
-          <article className="industry-row" key={item.title}>
+          <article className="usecase-token" key={item.title}>
             <span>{item.visualLabel}</span>
             <h3>{item.title}</h3>
             <p>{item.summary}</p>
@@ -445,15 +731,15 @@ export function IndustryIndex({ items }: { items: IndustryCard[] }) {
 
 export function CaseStudyGrid() {
   return (
-    <section className="section case-study-grid">
-      <SectionHeading
-        eyebrow="Client outcomes"
-        title="A clean structure for approved customer proof."
-        lead="These cards are ready for challenge, approach, result, metric, and testimonial content when permissions are complete."
-      />
-      <div className="outcome-grid">
+    <section className="platform-proof-room">
+      <div className="platform-section-intro compact">
+        <p className="eyebrow">Proof room</p>
+        <h2>Customer stories organized by challenge, system path, and measurable shift.</h2>
+        <p>Each proof card is shaped for the operating detail a buyer needs before starting a build.</p>
+      </div>
+      <div className="proof-room-grid">
         {caseStudies.map((item) => (
-          <article className="outcome-card" key={item.title}>
+          <article className="proof-room-card" key={item.title}>
             <strong>{item.metric}</strong>
             <h3>{item.title}</h3>
             <p>{item.summary}</p>
@@ -473,12 +759,12 @@ export function FAQSection({ page }: { page: MarketingPage }) {
   if (!page.sections.faqs?.length) return null;
 
   return (
-    <section className="section faq-section">
-      <SectionHeading
-        eyebrow="FAQ"
-        title="Short answers for the first buyer conversation."
-        lead="This section should remove friction before a workshop or project call."
-      />
+    <section className="platform-faq-section">
+      <div className="platform-section-intro compact">
+        <p className="eyebrow">FAQ</p>
+        <h2>Short answers for the first buyer conversation.</h2>
+        <p>This section should remove friction before a workshop or project call.</p>
+      </div>
       <FAQAccordion items={page.sections.faqs} />
     </section>
   );
@@ -486,13 +772,13 @@ export function FAQSection({ page }: { page: MarketingPage }) {
 
 export function ContactSection() {
   return (
-    <section className="section contact-section">
-      <div>
+    <section className="platform-contact-section">
+      <div className="contact-command-panel">
         <p className="eyebrow">Start here</p>
-        <h2>Tell Ignitz what you need to train, build, or staff.</h2>
+        <h2>Route the right Ignitz team into the conversation.</h2>
         <p>
-          Keep the first inquiry short. Routing and qualification can happen
-          after the right lead has context.
+          Keep the first inquiry short. We will map it to Labs, Business Systems,
+          Health, training, or embedded delivery after the right lead has context.
         </p>
         <div className="contact-channels">
           {contactChannels.map((channel) => (
@@ -510,13 +796,15 @@ export function ContactSection() {
 
 export function FinalCTA() {
   return (
-    <section className="final-cta">
-      <p className="eyebrow">Build with Ignitz</p>
-      <h2>Bring the product, workflow, or healthcare system that needs intelligence.</h2>
-      <p>
-        We will route the conversation to Labs, Business Systems, or Health and
-        shape the next concrete build path.
-      </p>
+    <section className="platform-final-cta">
+      <div>
+        <p className="eyebrow">Build with Ignitz</p>
+        <h2>Bring the product, workflow, or healthcare system that needs intelligence.</h2>
+        <p>
+          We will route the conversation to Labs, Business Systems, or Health and
+          shape the next concrete build path.
+        </p>
+      </div>
       <Link className="button button-primary" href="/contact">
         Contact the team
       </Link>
@@ -525,70 +813,113 @@ export function FinalCTA() {
 }
 
 export function Footer() {
+  const footerSignals = ["AI systems", "Business operations", "Healthcare workflows", "Builder pipeline"];
+  const proofSignals = ["Microsoft for Startups", "OpenAI + Azure", "Hyderabad delivery base"];
+  const footerGroups = [
+    {
+      label: "Platform",
+      links: [
+        { href: "/labs", label: "Ignitz Labs" },
+        { href: "/business-systems", label: "Business Systems" },
+        { href: "/health", label: "Ignitz Health" },
+      ],
+    },
+    {
+      label: "Products",
+      links: [
+        { href: "/ai-products", label: "AI products" },
+        { href: "/incubator", label: "Incubator" },
+        { href: "/hackathons", label: "Hackathons" },
+      ],
+    },
+    {
+      label: "Services",
+      links: [
+        { href: "/training", label: "Training" },
+        { href: "/ai-product-development", label: "AI product development" },
+        { href: "/expert-teams", label: "Expert teams" },
+      ],
+    },
+    {
+      label: "Resources",
+      links: [
+        { href: "/blogs", label: "Field notes" },
+        { href: "/case-studies", label: "Case studies" },
+        { href: "/interns", label: "Interns" },
+      ],
+    },
+    {
+      label: "Company",
+      links: [
+        { href: "/team", label: "Team" },
+        { href: "/careers", label: "Careers" },
+        { href: "/contact", label: "Contact" },
+      ],
+    },
+  ];
+
   return (
     <footer className="site-footer">
-      <div className="footer-brand-block">
-        <Link className="footer-brand" href="/" aria-label="Ignitz home">
-          <BrandLogo className="footer-logo" />
-        </Link>
-        <p>{site.description}</p>
-        <div className="footer-contact">
-          <a href={`mailto:${site.email}`}>{site.email}</a>
-          <a href="tel:+919392796918">{site.phone}</a>
-          <span>Hyderabad, India</span>
+      <div className="footer-gradient-shell">
+        <div className="footer-platform-panel">
+          <div className="footer-brand-block">
+            <Link className="footer-brand" href="/" aria-label="Ignitz home">
+              <BrandLogo className="footer-logo" />
+            </Link>
+            <p className="footer-kicker">Ignitz systems platform</p>
+            <h2>Engineering intelligent systems from Hyderabad.</h2>
+            <p>
+              Enterprise signals stay structured as the proof library grows. Ignitz
+              connects AI products, operations, healthcare workflows, and capability
+              transfer into systems teams can actually run.
+            </p>
+            <div className="footer-signal-row" aria-label="Ignitz platform signals">
+              {footerSignals.map((signal) => (
+                <span key={signal}>{signal}</span>
+              ))}
+            </div>
+          </div>
+          <div className="footer-action-panel" aria-label="Ignitz proof and briefing panel">
+            <div className="footer-proof-stack">
+              {proofSignals.map((signal) => (
+                <span key={signal}>{signal}</span>
+              ))}
+            </div>
+            <div className="footer-system-orbit" aria-hidden="true">
+              <span>Workflow</span>
+              <span>Data</span>
+              <strong>Ignitz</strong>
+              <span>AI system</span>
+              <span>Memory</span>
+            </div>
+            <Link className="button button-primary" href="/contact">
+              Build with Ignitz
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className="footer-link-groups">
-        <nav aria-label="Footer services">
-          <h3>Divisions</h3>
-          <Link href="/labs">Ignitz Labs</Link>
-          <Link href="/business-systems">Business Systems</Link>
-          <Link href="/health">Ignitz Health</Link>
-        </nav>
-        <nav aria-label="Footer products">
-          <h3>Labs</h3>
-          <Link href="/ai-products">AI products</Link>
-          <Link href="/incubator">Incubator</Link>
-          <Link href="/hackathons">Hackathons</Link>
-        </nav>
-        <nav aria-label="Footer services">
-          <h3>Services</h3>
-          <Link href="/training">Training</Link>
-          <Link href="/ai-product-development">AI product development</Link>
-          <Link href="/expert-teams">Expert teams</Link>
-        </nav>
-        <nav aria-label="Footer company">
-          <h3>Company</h3>
-          <Link href="/blogs">Blogs</Link>
-          <Link href="/team">Team</Link>
-          <Link href="/interns">Interns</Link>
-        </nav>
-        <nav aria-label="Footer legal">
-          <h3>Legal</h3>
-          <Link href="/privacy">Privacy</Link>
-          <Link href="/terms">Terms</Link>
-          <Link href="/accessibility">Accessibility</Link>
-        </nav>
-      </div>
-      <p className="footer-line">Engineering intelligent systems from Hyderabad.</p>
-    </footer>
-  );
-}
 
-export function SectionHeading({
-  eyebrow,
-  title,
-  lead,
-}: {
-  eyebrow: string;
-  title: string;
-  lead: string;
-}) {
-  return (
-    <div className="section-heading">
-      <p className="eyebrow">{eyebrow}</p>
-      <h2>{title}</h2>
-      <p>{lead}</p>
-    </div>
+        <div className="footer-link-groups">
+          {footerGroups.map((group) => (
+            <nav aria-label={`Footer ${group.label}`} key={group.label}>
+              <h3>{group.label}</h3>
+              {group.links.map((link) => (
+                <Link href={link.href} key={link.href}>
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          ))}
+          <nav aria-label="Footer legal">
+            <h3>Legal</h3>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+            <Link href="/accessibility">Accessibility</Link>
+          </nav>
+        </div>
+
+        <div className="footer-mega-word" aria-hidden="true">IGNITZ</div>
+
+      </div>
+    </footer>
   );
 }

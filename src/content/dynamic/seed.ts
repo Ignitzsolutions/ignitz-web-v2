@@ -118,7 +118,7 @@ export const seedHackathons: Hackathon[] = [
     title: "Campus AI Prototype Day",
     slug: "campus-ai-prototype-day",
     date: "2026-07-20",
-    status: "Draft",
+    status: "Upcoming",
     theme: "Student-built AI workflows for real business operations",
     participants: "Campus teams and Ignitz mentors",
     excerpt:

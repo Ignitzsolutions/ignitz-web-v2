@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, Roboto_Mono } from "next/font/google";
+import { Open_Sans, Roboto_Mono, Sora } from "next/font/google";
 import { SiteShell } from "@/components/SiteShell";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const inter = Inter({
+const openSans = Open_Sans({
   variable: "--font-body",
   subsets: ["latin"],
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const sora = Sora({
   variable: "--font-heading",
   subsets: ["latin"],
 });
@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jakarta.variable} ${mono.variable}`}>
+    <html lang="en" className={`${openSans.variable} ${sora.variable} ${mono.variable}`}>
       <body>
         <SiteShell>{children}</SiteShell>
       </body>
