@@ -54,7 +54,7 @@ export const proofMetrics: ProofMetric[] = [
 
 export const brandNarrative: BrandNarrative = {
   eyebrow: "Microsoft for Startups-backed AI systems company",
-  title: "AI systems your teams can actually run.",
+  title: "Smart AI systems for teams that run real work.",
   lead:
     "Ignitz connects workflows, data, AI products, and capability transfer into one operating layer for teams that need production outcomes, not another disconnected tool.",
   primaryCta: { label: "Build with Ignitz", href: "/contact" },
@@ -68,12 +68,11 @@ export const brandNarrative: BrandNarrative = {
 };
 
 export const heroTypingPhrases = [
-  "business operations",
-  "healthcare workflows",
-  "AI products",
-  "enterprise teams",
-  "learning systems",
-  "automation programs",
+  "for healthcare",
+  "for consulting",
+  "for recruitment",
+  "for business",
+  "for empowerment",
 ];
 
 export const knowledgeGraphNodes: KnowledgeGraphNode[] = [
@@ -275,7 +274,7 @@ export const homepageProofStories: HomepageProofStory[] = [
   {
     label: "AI products",
     title: "Product surfaces that prove the platform model.",
-    summary: "Evaluate Yourself, MindSpan, and internal build tools show how Ignitz turns learning and workflow problems into product systems.",
+    summary: "Internal product surfaces and build tools show how Ignitz turns learning and workflow problems into product systems.",
     meta: "Product direction",
     href: "/ai-products",
     accent: "product",

@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { Open_Sans, Roboto_Mono, Sora } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import { SiteShell } from "@/components/SiteShell";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const openSans = Open_Sans({
-  variable: "--font-body",
-  subsets: ["latin"],
-});
-
-const sora = Sora({
-  variable: "--font-heading",
-  subsets: ["latin"],
-});
-
-const mono = Roboto_Mono({
-  variable: "--font-mono",
+const jetBrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
 });
 
@@ -34,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${openSans.variable} ${sora.variable} ${mono.variable}`}>
+    <html lang="en" className={jetBrains.variable}>
       <body>
         <SiteShell>{children}</SiteShell>
       </body>

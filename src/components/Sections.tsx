@@ -1,13 +1,11 @@
 import Link from "next/link";
 import {
   aiSystemsStack,
-  brandNarrative,
   capabilityNodes,
   caseStudies,
   companySignals,
   contactChannels,
   divisions,
-  flagshipProducts,
   homepagePlatformPillars,
   homepageProofStories,
   heroTypingPhrases,
@@ -26,6 +24,7 @@ import { ContactForm } from "./ContactForm";
 import { FAQAccordion } from "./FAQAccordion";
 import { BrandLogo } from "./BrandLogo";
 import { HeroTypingText } from "./HeroTypingText";
+import { RecruitmentIntelligenceMap } from "./RecruitmentIntelligenceMap";
 
 function ButtonLink({ cta }: { cta: CTA }) {
   const className =
@@ -52,49 +51,50 @@ export function PrecisionHome() {
       <CapabilityArchitecture />
       <HomepageProofStories />
       <AISystemsStack />
-      <FlagshipProducts />
       <SystemsCTA />
     </>
   );
 }
 
 function PrecisionHero() {
-  const publicSignals = companySignals.filter((signal) => signal.status !== "placeholder");
+  const heroChips = [
+    "AI strategy",
+    "Automation",
+    "Training",
+    "Recruitment systems",
+    "Embedded pods",
+    "Governance",
+  ];
 
   return (
     <section className="precision-hero platform-home-hero">
       <div className="precision-hero-copy reveal">
-        <p className="eyebrow">{brandNarrative.eyebrow}</p>
+        <p className="eyebrow hero-premium-badge">AI transformation consulting</p>
         <h1>
-          <span>{brandNarrative.title}</span>
+          <span>Your path to AI transformation —</span>
+          <em>
+            <HeroTypingText phrases={heroTypingPhrases} />
+          </em>
         </h1>
-        <div className="hero-typing-support">
-          <span>Built for</span>
-          <HeroTypingText phrases={heroTypingPhrases} />
+        <p>
+          Ignitz guides enterprise teams from strategy to systems, adoption, and measurable
+          operating change.
+        </p>
+        <div className="hero-actions" aria-label="Homepage actions">
+          <Link className="button button-primary" href="/contact">
+            Book an AI transformation call
+          </Link>
+          <Link className="button button-secondary" href="/business-systems">
+            Explore services
+          </Link>
         </div>
-        <p>{brandNarrative.lead}</p>
-        <form className="hero-email-capture" action="/contact">
-          <label className="sr-only" htmlFor="home-work-email">
-            Work email
-          </label>
-          <input id="home-work-email" name="workEmail" placeholder="Your work email here" type="email" />
-          <button type="submit">Build with Ignitz</button>
-        </form>
-        <ul className="hero-signal-list" aria-label="Ignitz operating signals">
-          {brandNarrative.signals.map((signal) => (
+        <ul className="hero-signal-list" aria-label="Ignitz consulting capabilities">
+          {heroChips.map((signal) => (
             <li className="hero-signal" key={signal}>
               {signal}
             </li>
           ))}
         </ul>
-        <div className="hero-actions">
-          <ButtonLink cta={{ ...brandNarrative.secondaryCta, variant: "secondary" }} />
-        </div>
-        <div className="mobile-hero-proof" aria-label="Ignitz proof signals">
-          {publicSignals.slice(0, 5).map((signal) => (
-            <span key={`mobile-${signal.label}`}>{signal.label}</span>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -119,15 +119,15 @@ function HomepageConsoleShowcase() {
 function HeroOperatingBoard() {
   const navItems = ["Intake", "Knowledge", "Agents", "Review", "Memory"];
   const tasks = [
-    { label: "CRM account context", status: "Synced" },
-    { label: "Proposal draft agent", status: "Running" },
-    { label: "Manager approval", status: "Queued" },
+    { label: "Client role requirements", status: "Synced" },
+    { label: "Candidate screening agent", status: "Running" },
+    { label: "Recruiter review", status: "Queued" },
   ];
-  const integrations = ["OpenAI", "Azure", "Docs", "CRM"];
+  const integrations = ["ATS", "CRM", "Docs", "Email"];
   const outcomeRows = [
-    { label: "Manual steps", value: "-38%" },
-    { label: "Review path", value: "Mapped" },
-    { label: "Reusable playbook", value: "Ready" },
+    { label: "Screening time", value: "-32%" },
+    { label: "Shortlist path", value: "Mapped" },
+    { label: "Hiring memory", value: "Ready" },
   ];
 
   return (
@@ -144,14 +144,14 @@ function HeroOperatingBoard() {
         <div className="product-console-topline">
           <div>
             <span>Active AI system</span>
-            <strong>Proposal Intelligence Workspace</strong>
+            <strong>Recruitment Operations Workspace</strong>
           </div>
           <small>Live</small>
         </div>
         <div className="product-console-grid">
           <section className="console-workflow-card" aria-label="Workflow state">
             <span>Workflow</span>
-            <h3>Sales intake to approved proposal</h3>
+            <h3>Role intake to candidate shortlist</h3>
             <div className="workflow-path" aria-hidden="true">
               <i />
               <i />
@@ -169,8 +169,8 @@ function HeroOperatingBoard() {
           </section>
           <section className="console-policy-card" aria-label="Review and policy">
             <span>Review policy</span>
-            <strong>Human approval before client send</strong>
-            <p>Owners, source context, generated drafts, and decision notes stay attached.</p>
+            <strong>Human review before candidate submission</strong>
+            <p>Role owners, candidate context, screening notes, and recruiter decisions stay attached.</p>
           </section>
           <section className="console-integrations" aria-label="Connected platforms">
             <span>Connected stack</span>
@@ -281,77 +281,6 @@ function CapabilityArchitecture() {
   );
 }
 
-function FlagshipProducts() {
-  const [featuredProduct, ...supportingProducts] = flagshipProducts;
-
-  return (
-    <section className="precision-section flagship-products product-proof-lab">
-      <div className="precision-section-heading">
-        <p className="eyebrow">Use-case proof</p>
-        <h2>How the Ignitz platform turns workflows into systems.</h2>
-        <p>
-          Products, internal systems, and community programs become proof paths for the same
-          platform discipline: discover the work, build the system, run the memory.
-        </p>
-      </div>
-      <div className="product-proof-board">
-        {featuredProduct ? (
-          <Link
-            className={`product-proof-feature flagship-${featuredProduct.accent}`}
-            href={featuredProduct.href}
-          >
-            <span>Featured proof path</span>
-            <h3>{featuredProduct.name}</h3>
-            <strong>{featuredProduct.tagline}</strong>
-            <p>{featuredProduct.summary}</p>
-            <div className="product-proof-feature-grid">
-              <article>
-                <small>Workflow</small>
-                <b>{featuredProduct.useCase}</b>
-              </article>
-              <article>
-                <small>Audience</small>
-                <b>{featuredProduct.targetUser}</b>
-              </article>
-            </div>
-            <em>{featuredProduct.ctaLabel}</em>
-          </Link>
-        ) : null}
-        <div className="product-system-map" aria-label="Ignitz product proof map">
-          <span className="product-map-node product-map-core">Ignitz graph</span>
-          <span className="product-map-node product-map-one">Learning</span>
-          <span className="product-map-node product-map-two">Operations</span>
-          <span className="product-map-node product-map-three">Community</span>
-          <i className="product-map-line product-map-line-one" />
-          <i className="product-map-line product-map-line-two" />
-          <i className="product-map-line product-map-line-three" />
-        </div>
-        <div className="flagship-list product-proof-grid">
-          {supportingProducts.map((product, index) => (
-            <Link
-              className={`flagship-row product-proof-tile flagship-${product.accent}`}
-              href={product.href}
-              key={product.name}
-            >
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div className="flagship-main">
-                <small>{product.status}</small>
-                <h3>{product.name}</h3>
-                <strong>{product.tagline}</strong>
-              </div>
-              <p>{product.summary}</p>
-              <em>
-                {product.proof}
-                <b>{product.ctaLabel}</b>
-              </em>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function AISystemsStack() {
   return (
     <section className="precision-section ai-stack-section ai-architecture-board">
@@ -364,11 +293,7 @@ function AISystemsStack() {
             memory, and talent capacity arranged around real workflows.
           </p>
         </div>
-        <div className="stack-core-visual" aria-hidden="true">
-          <span>Architecture map</span>
-          <strong>Workflow intelligence</strong>
-          <i />
-        </div>
+        <RecruitmentIntelligenceMap />
         <div className="stack-list stack-layer-grid">
           {aiSystemsStack.map((item) => (
             <article className={`stack-item stack-${item.accent}`} key={item.title}>
@@ -508,6 +433,35 @@ function HeroPlatformPanel({ page }: { page: MarketingPage }) {
 }
 
 function ClientSignalStrip() {
+  const signalLogos: Record<string, { alt: string; src: string }> = {
+    Qualcomm: {
+      alt: "Qualcomm logo",
+      src: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Qualcomm-Logo.svg",
+    },
+    Shell: {
+      alt: "Shell logo",
+      src: "https://upload.wikimedia.org/wikipedia/en/e/e8/Shell_logo.svg",
+    },
+    "Microsoft for Startups": {
+      alt: "Microsoft logo",
+      src: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+    },
+    OpenAI: {
+      alt: "OpenAI logo",
+      src: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
+    },
+    Azure: {
+      alt: "Microsoft Azure logo",
+      src: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg",
+    },
+  };
+  const logoSignals = companySignals.flatMap((signal) => {
+    const logo = signalLogos[signal.label];
+
+    return logo ? [{ ...signal, logo }] : [];
+  });
+  const marqueeSignals = [...logoSignals, ...logoSignals];
+
   return (
     <div className="client-signal-strip" aria-label="Ignitz ecosystem and platform signal strip">
       <div className="client-signal-heading">
@@ -515,12 +469,26 @@ function ClientSignalStrip() {
         <p>A growing proof library for platform references, buyer audiences, and draft enterprise names.</p>
       </div>
       <div className="client-signal-track">
-        {companySignals.map((signal) => (
-          <article className={`client-signal-tile signal-${signal.status}`} key={`${signal.category}-${signal.label}`}>
-            <strong>{signal.label}</strong>
-            <span>{signal.status === "placeholder" ? "Draft placeholder" : signal.category}</span>
-          </article>
-        ))}
+        {marqueeSignals.map((signal, index) => {
+          const logoSlug = signal.label
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-|-$/g, "");
+
+          return (
+            <article
+              className={`client-signal-tile signal-${signal.status}`}
+              key={`${signal.category}-${signal.label}-${index}`}
+            >
+              <span
+                aria-label={signal.logo.alt}
+                className={`client-signal-logo logo-${logoSlug}`}
+                role="img"
+                style={{ backgroundImage: `url("${signal.logo.src}")` }}
+              />
+            </article>
+          );
+        })}
       </div>
     </div>
   );
@@ -866,12 +834,11 @@ export function Footer() {
             <Link className="footer-brand" href="/" aria-label="Ignitz home">
               <BrandLogo className="footer-logo" />
             </Link>
-            <p className="footer-kicker">Ignitz systems platform</p>
-            <h2>Engineering intelligent systems from Hyderabad.</h2>
+            <p className="footer-kicker">Ignitz Solutions</p>
+            <h2>Intelligent systems from Hyderabad.</h2>
             <p>
-              Enterprise signals stay structured as the proof library grows. Ignitz
-              connects AI products, operations, healthcare workflows, and capability
-              transfer into systems teams can actually run.
+              AI products, operations, healthcare workflows, and capability transfer,
+              built into systems teams can run.
             </p>
             <div className="footer-signal-row" aria-label="Ignitz platform signals">
               {footerSignals.map((signal) => (
@@ -917,7 +884,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="footer-mega-word" aria-hidden="true">IGNITZ</div>
+        <div className="footer-mega-word" aria-hidden="true">Ignitz Solutions</div>
 
       </div>
     </footer>

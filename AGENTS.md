@@ -20,6 +20,19 @@ teams. The visual direction is editorial, high-trust, precise, and light-only.
 ## Content and UX Standards
 - Keep copy concise, enterprise-focused, and outcome-led.
 - Every page should have one primary CTA and at most one secondary CTA.
+- Treat every visible interface as if Ignitz is a billion-dollar AI company:
+  polished, deliberate, commercially serious, and investor-grade. Visuals must
+  feel premium enough for enterprise buyers, not like a prototype, template, or
+  generic startup landing page.
+- Interactive elements must explain the business system, not exist as decoration.
+  Cursor effects, hover states, motion, diagrams, and product previews should
+  reveal workflow meaning, operating status, or decision context. Remove any
+  interaction that feels gimmicky, random, noisy, or visually cheap.
+- Use restrained, high-confidence visual language: clear hierarchy, generous
+  spacing, precise typography, Ignitz navy/orange brand accents, real product or
+  workflow meaning, and smooth but subtle motion. Avoid clutter, meaningless
+  orbit graphics, overdone gradients, novelty animations, and decorative UI that
+  does not help a buyer understand the company.
 - Service pages should include proof, process, FAQ, and final CTA modules.
 - The homepage should feel like an AI operating partner page: brand-forward,
   calm, precise, and built around capability transfer.
