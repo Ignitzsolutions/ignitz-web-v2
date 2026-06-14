@@ -24,6 +24,7 @@ import { ContactForm } from "./ContactForm";
 import { FAQAccordion } from "./FAQAccordion";
 import { BrandLogo } from "./BrandLogo";
 import { HeroTypingText } from "./HeroTypingText";
+import { ProjectQuoteEstimator } from "./ProjectQuoteEstimator";
 import { RecruitmentIntelligenceMap } from "./RecruitmentIntelligenceMap";
 
 function ButtonLink({ cta }: { cta: CTA }) {
@@ -71,7 +72,7 @@ function PrecisionHero() {
       <div className="precision-hero-copy reveal">
         <p className="eyebrow hero-premium-badge">AI transformation consulting</p>
         <h1>
-          <span>Your path to AI transformation —</span>
+          <span>We create real impact with AI</span>
           <em>
             <HeroTypingText phrases={heroTypingPhrases} />
           </em>
@@ -781,8 +782,7 @@ export function FinalCTA() {
 }
 
 export function Footer() {
-  const footerSignals = ["AI systems", "Business operations", "Healthcare workflows", "Builder pipeline"];
-  const proofSignals = ["Microsoft for Startups", "OpenAI + Azure", "Hyderabad delivery base"];
+  const footerSignals = ["Systems", "Operations", "Healthcare", "Builder pipeline"];
   const footerGroups = [
     {
       label: "Platform",
@@ -795,7 +795,7 @@ export function Footer() {
     {
       label: "Products",
       links: [
-        { href: "/ai-products", label: "AI products" },
+        { href: "/ai-products", label: "Products" },
         { href: "/incubator", label: "Incubator" },
         { href: "/hackathons", label: "Hackathons" },
       ],
@@ -804,7 +804,7 @@ export function Footer() {
       label: "Services",
       links: [
         { href: "/training", label: "Training" },
-        { href: "/ai-product-development", label: "AI product development" },
+        { href: "/ai-product-development", label: "Product development" },
         { href: "/expert-teams", label: "Expert teams" },
       ],
     },
@@ -835,9 +835,9 @@ export function Footer() {
               <BrandLogo className="footer-logo" />
             </Link>
             <p className="footer-kicker">Ignitz Solutions</p>
-            <h2>Intelligent systems from Hyderabad.</h2>
+            <h2>We solve complex work globally.</h2>
             <p>
-              AI products, operations, healthcare workflows, and capability transfer,
+              Products, operations, healthcare workflows, and training programs,
               built into systems teams can run.
             </p>
             <div className="footer-signal-row" aria-label="Ignitz platform signals">
@@ -846,22 +846,8 @@ export function Footer() {
               ))}
             </div>
           </div>
-          <div className="footer-action-panel" aria-label="Ignitz proof and briefing panel">
-            <div className="footer-proof-stack">
-              {proofSignals.map((signal) => (
-                <span key={signal}>{signal}</span>
-              ))}
-            </div>
-            <div className="footer-system-orbit" aria-hidden="true">
-              <span>Workflow</span>
-              <span>Data</span>
-              <strong>Ignitz</strong>
-              <span>AI system</span>
-              <span>Memory</span>
-            </div>
-            <Link className="button button-primary" href="/contact">
-              Build with Ignitz
-            </Link>
+          <div className="footer-action-panel" aria-label="Quote estimator">
+            <ProjectQuoteEstimator />
           </div>
         </div>
 
