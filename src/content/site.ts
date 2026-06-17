@@ -352,21 +352,12 @@ export const flagshipProducts: FlagshipProduct[] = [
   {
     name: "Evaluate Yourself",
     status: "Flagship product in progress",
-<<<<<<< HEAD
     tagline: "Structured self-evaluation for learners, interns, and capability teams.",
     summary:
       "Evaluate Yourself is a focused platform direction for assessment, feedback, progress visibility, and learning accountability.",
     useCase: "Assessment, feedback, progress visibility, and learner accountability.",
     targetUser: "Students, interns, training cohorts, and capability teams.",
     proof: "Designed as a product, not a campaign page.",
-=======
-    tagline: "A self-evaluation system for learners and teams.",
-    summary:
-      "A focused platform for assessment, feedback, and progress.",
-    useCase: "Assessment, feedback, and progress tracking.",
-    targetUser: "Students, interns, and training cohorts.",
-    proof: "Built as a product.",
->>>>>>> 286696b (Refine Ignitz site copy and styling)
     href: "/ai-products",
     ctaLabel: "View product direction",
     accent: "flagship",
@@ -376,17 +367,10 @@ export const flagshipProducts: FlagshipProduct[] = [
     status: "Knowledge infrastructure",
     tagline: "See how your thinking spreads.",
     summary:
-<<<<<<< HEAD
       "A Markdown-based knowledge bandwidth visualizer that turns notes, reviews, mistakes, and lessons into a living growth map.",
     useCase: "Engineering memory, review learning, cognitive maps, and knowledge growth.",
     targetUser: "Builders, reviewers, mentors, and AI-assisted engineering teams.",
     proof: "Shows Ignitz's belief that learning should compound.",
-=======
-      "A Markdown-based map for notes, reviews, and lessons.",
-    useCase: "Engineering memory and learning.",
-    targetUser: "Builders, reviewers, and mentors.",
-    proof: "Learning should compound.",
->>>>>>> 286696b (Refine Ignitz site copy and styling)
     href: "/incubator",
     ctaLabel: "Open incubator",
     accent: "memory",
@@ -394,21 +378,12 @@ export const flagshipProducts: FlagshipProduct[] = [
   {
     name: "Storefront OS",
     status: "Business systems direction",
-<<<<<<< HEAD
     tagline: "Operations infrastructure for teams that need control.",
     summary:
       "Dynamic storefronts, admin dashboards, inventory-aware workflows, reports, exports, and operating control without constant developer dependency.",
     useCase: "Storefronts, admin systems, reports, dashboards, and workflow control.",
     targetUser: "Business owners and operators who need self-managed systems.",
     proof: "Business owners should control daily operations.",
-=======
-    tagline: "Operations infrastructure for businesses.",
-    summary:
-      "Storefronts, dashboards, workflows, and exports without heavy dev work.",
-    useCase: "Storefronts, admin systems, and reports.",
-    targetUser: "Owners and operators.",
-    proof: "Owners should control operations.",
->>>>>>> 286696b (Refine Ignitz site copy and styling)
     href: "/business-systems",
     ctaLabel: "Explore systems",
     accent: "operations",
@@ -418,17 +393,10 @@ export const flagshipProducts: FlagshipProduct[] = [
     status: "Builder pipeline",
     tagline: "Learn AI by building fast.",
     summary:
-<<<<<<< HEAD
       "Hackathons are treated as capability accelerators: Azure/OpenAI tooling, mentorship, incubation paths, and exposure to real AI workflows.",
     useCase: "Rapid prototypes, AI upskilling, mentorship, and product discovery.",
     targetUser: "Students, interns, campus builders, and future founders.",
     proof: "A pipeline for students, builders, and future founders.",
-=======
-      "Hackathons as fast capability builders.",
-    useCase: "Prototypes, upskilling, and discovery.",
-    targetUser: "Students, interns, and future founders.",
-    proof: "A pipeline for builders.",
->>>>>>> 286696b (Refine Ignitz site copy and styling)
     href: "/hackathons",
     ctaLabel: "See hackathons",
     accent: "community",
@@ -438,35 +406,22 @@ export const flagshipProducts: FlagshipProduct[] = [
 export const aiSystemsStack: AISystemsStackItem[] = [
   {
     layer: "01",
-<<<<<<< HEAD
     title: "Data foundation",
     summary: "Knowledge sources, structured records, operating data, and retrieval-ready foundations.",
-=======
-    title: "Data layer",
-    summary: "Knowledge sources and structured data.",
->>>>>>> 286696b (Refine Ignitz site copy and styling)
     signal: "RAG / databases / cloud",
     accent: "data",
   },
   {
     layer: "02",
     title: "AI agents",
-<<<<<<< HEAD
     summary: "Copilots, assistants, Realtime interfaces, and OpenAI/Azure OpenAI workflows.",
-=======
-    summary: "Copilots, assistants, and realtime workflows.",
->>>>>>> 286696b (Refine Ignitz site copy and styling)
     signal: "agents / copilots / realtime",
     accent: "agents",
   },
   {
     layer: "03",
     title: "Workflow automation",
-<<<<<<< HEAD
     summary: "Business rules, handoffs, reporting loops, notifications, and governed acceleration.",
-=======
-    summary: "Business rules, handoffs, and notifications.",
->>>>>>> 286696b (Refine Ignitz site copy and styling)
     signal: "automation / integrations",
     accent: "automation",
   },
@@ -479,13 +434,8 @@ export const aiSystemsStack: AISystemsStackItem[] = [
   },
   {
     layer: "05",
-<<<<<<< HEAD
     title: "Capability memory",
     summary: "Feedback, reviews, lessons, mistakes, and notes turned into reusable team knowledge.",
-=======
-    title: "Learning memory",
-    summary: "Feedback and notes turned into reusable knowledge.",
->>>>>>> 286696b (Refine Ignitz site copy and styling)
     signal: "MindSpan / learning maps",
     accent: "memory",
   },
@@ -519,35 +469,19 @@ export const engineeringCulture: EngineeringCultureItem[] = [
 
 export const communitySignals: CommunitySignal[] = [
   {
-<<<<<<< HEAD
-    label: "Talent",
-    title: "Build capability where delivery happens.",
-    summary: "Ignitz creates exposure, mentorship, and product-building opportunities for students and young engineers.",
+   label: "Talent",
+   title: "Build capability where delivery happens.",
+   summary: "Ignitz creates exposure, mentorship, and product-building opportunities for students and young engineers.",
   },
   {
-    label: "Hackathons",
-    title: "Prototype with production habits.",
-    summary: "NexGen-AI turns Azure/OpenAI resources and mentor feedback into practical AI prototypes.",
+   label: "Hackathons",
+   title: "Prototype with production habits.",
+   summary: "NexGen-AI turns Azure/OpenAI resources and mentor feedback into practical AI prototypes.",
   },
   {
-    label: "Incubation",
-    title: "Turn experiments into reusable IP.",
-    summary: "Internal R&D, product experiments, and founder-led building convert lessons into reusable systems.",
-=======
-    label: "Students",
-    title: "Talent exists everywhere.",
-    summary: "Exposure, mentorship, and real product work.",
-  },
-  {
-    label: "Hackathons",
-    title: "Build first, learn fast.",
-    summary: "Turn feedback into practical prototypes.",
-  },
-  {
-    label: "Incubation",
-    title: "Ideas become deployable products.",
-    summary: "R&D and experiments become reusable systems.",
->>>>>>> 286696b (Refine Ignitz site copy and styling)
+   label: "Incubation",
+   title: "Turn experiments into reusable IP.",
+   summary: "Internal R&D, product experiments, and founder-led building convert lessons into reusable systems.",
   },
 ];
 
