@@ -1,0 +1,96 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ignitz-web-v2-main
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    name: Lint and build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run build
+        run: npm run build
+
+  deploy:
+    name: Deploy to server
+    runs-on: ubuntu-latest
+    needs: ci
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    env:
+      DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+      DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
+      DEPLOY_DIR: /var/www/ignitz-web-v2/current
+      DEPLOY_SERVICE: ignitz-web-v2.service
+      DEPLOY_PORT: "3001"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install SSH client tools
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Create source archive
+        run: git archive --format=tar HEAD | gzip -9 > ignitz-web-v2.tar.gz
+
+      - name: Upload archive to server
+        run: |
+          sshpass -p "$DEPLOY_PASSWORD" scp \
+            -o StrictHostKeyChecking=accept-new \
+            -o PreferredAuthentications=password \
+            -o PubkeyAuthentication=no \
+            ignitz-web-v2.tar.gz \
+            "${DEPLOY_USER}@${DEPLOY_HOST}:/root/ignitz-web-v2.tar.gz"
+
+      - name: Run remote deploy
+        run: |
+          cat > /tmp/ignitz-remote-deploy.sh <<EOF
+          set -euo pipefail
+
+          rm -rf "$DEPLOY_DIR"
+          mkdir -p "$DEPLOY_DIR"
+          tar -xzf /root/ignitz-web-v2.tar.gz -C "$DEPLOY_DIR"
+          cd "$DEPLOY_DIR"
+          npm ci
+          npm run build
+          systemctl restart "$DEPLOY_SERVICE"
+          systemctl is-active "$DEPLOY_SERVICE"
+          ss -ltnp | grep ":$DEPLOY_PORT" || true
+          curl -I --max-time 10 "http://127.0.0.1:$DEPLOY_PORT"
+          EOF
+
+          sshpass -p "$DEPLOY_PASSWORD" ssh \
+            -o StrictHostKeyChecking=accept-new \
+            -o PreferredAuthentications=password \
+            -o PubkeyAuthentication=no \
+            "${DEPLOY_USER}@${DEPLOY_HOST}" \
+            'bash -s' < /tmp/ignitz-remote-deploy.sh
