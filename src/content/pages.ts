@@ -5,12 +5,11 @@ export const pages: Record<string, MarketingPage> = {
   home: {
     slug: "/",
     title: "AI Systems for Modern Operations | Ignitz",
-    description:
-      "Ignitz builds productized AI systems, business operations platforms, healthcare workflows, and learning infrastructure.",
+    description: "Ignitz builds AI systems for work, operations, and care.",
     hero: {
       eyebrow: "Microsoft for Startups-backed AI systems company",
       title: "Ignitz builds AI systems for modern operations.",
-      lead: "Productized AI, business operations, healthcare workflows, and learning systems built as practical infrastructure.",
+      lead: "AI for operations, healthcare, and learning.",
       primaryCta: { label: "Build with Ignitz", href: "/contact" },
       secondaryCta: { label: "Explore the system", href: "#capability-architecture" },
     },
@@ -20,11 +19,11 @@ export const pages: Record<string, MarketingPage> = {
     slug: "/training",
     title: "Corporate Training for Consulting and AI Teams | Ignitz",
     description:
-      "Upskill teams through practical consulting, AI, and execution programs built for enterprise adoption.",
+      "Practical consulting and AI training for enterprise teams.",
     hero: {
       eyebrow: "Corporate training",
       title: "Training programs for consulting and AI delivery teams.",
-      lead: "Programs designed for teams that need more than theory: consulting rigor, AI fluency, and hands-on execution skills.",
+      lead: "Consulting rigor, AI fluency, and execution practice.",
       primaryCta: { label: "Request a program brief", href: "/contact" },
       secondaryCta: {
         label: "View consulting bootcamps",
@@ -33,7 +32,7 @@ export const pages: Record<string, MarketingPage> = {
     },
     sections: {
       intro:
-        "Use training when teams need shared language, repeatable methods, and practice that connects directly to delivery.",
+        "Use training to build shared language and repeatable methods.",
       outcomes,
       process,
       faqs,
@@ -43,11 +42,11 @@ export const pages: Record<string, MarketingPage> = {
     slug: "/training/consulting-bootcamps",
     title: "Consulting Capability Bootcamps | Ignitz",
     description:
-      "Intensive bootcamps for consultants, analysts, and transformation teams covering structured problem solving and delivery execution.",
+      "Bootcamps for consultants, analysts, and transformation teams.",
     hero: {
       eyebrow: "Consulting bootcamps",
       title: "Make consulting capability visible in daily work.",
-      lead: "Short-format bootcamps build structured thinking, stakeholder communication, synthesis, and execution discipline.",
+      lead: "Structured thinking, communication, and execution.",
       primaryCta: { label: "Schedule a capability call", href: "/contact" },
       secondaryCta: { label: "Explore AI readiness", href: "/training/ai-leadership-and-readiness" },
     },
@@ -57,11 +56,11 @@ export const pages: Record<string, MarketingPage> = {
     slug: "/training/ai-leadership-and-readiness",
     title: "AI Readiness and Leadership Programs | Ignitz",
     description:
-      "Help leaders move from AI curiosity to operating-model decisions, governance, and adoption plans.",
+      "Help leaders move from AI curiosity to action.",
     hero: {
       eyebrow: "AI leadership",
       title: "Turn AI ambition into priorities, guardrails, and action.",
-      lead: "Executive programs align leaders on use cases, risk, governance, operating model choices, and adoption plans.",
+      lead: "Align leaders on use cases, risk, and next steps.",
       primaryCta: { label: "Book an executive workshop", href: "/contact" },
       secondaryCta: { label: "Explore training", href: "/training" },
     },
@@ -71,11 +70,11 @@ export const pages: Record<string, MarketingPage> = {
     slug: "/ai-product-development",
     title: "AI Product Development Services | Ignitz",
     description:
-      "Design, build, and operationalize AI products with embedded teams, delivery governance, and capability transfer.",
+      "Design and ship AI products with embedded teams.",
     hero: {
       eyebrow: "AI product development",
       title: "AI product development from pilot to production.",
-      lead: "We build AI products with your teams, not around them, so pilots become products and products become operating capability.",
+      lead: "Pilots become products. Products become capability.",
       primaryCta: { label: "Talk to an AI product lead", href: "/contact" },
       secondaryCta: { label: "See expert teams", href: "/expert-teams" },
     },
@@ -85,11 +84,11 @@ export const pages: Record<string, MarketingPage> = {
     slug: "/expert-teams",
     title: "Expert Teams and Embedded Delivery Pods | Ignitz",
     description:
-      "Access consultants, engineers, analysts, and AI specialists who integrate with your team to speed delivery.",
+      "Consultants, engineers, and AI specialists who plug into your team.",
     hero: {
       eyebrow: "Embedded teams",
       title: "Expert teams embedded with your business.",
-      lead: "From specialist augmentation to cross-functional pods, we plug capability gaps without creating dependency.",
+      lead: "Fill gaps without creating dependency.",
       primaryCta: { label: "Hire a delivery pod", href: "/contact" },
       secondaryCta: { label: "Explore AI builds", href: "/ai-product-development" },
     },
@@ -99,11 +98,11 @@ export const pages: Record<string, MarketingPage> = {
     slug: "/industries",
     title: "Industry Solutions for AI and Transformation | Ignitz",
     description:
-      "See how Ignitz adapts training, AI product delivery, and expert-team models for complex industries.",
+      "How Ignitz adapts for complex industries.",
     hero: {
       eyebrow: "Industries",
       title: "Industry solutions built around real operating needs.",
-      lead: "Different sectors need different proof, governance, and delivery models. Ignitz adapts the offer to the work.",
+      lead: "Different sectors need different proof and delivery.",
       primaryCta: { label: "Explore your use case", href: "/contact" },
       secondaryCta: { label: "View case studies", href: "/case-studies" },
     },
@@ -113,11 +112,11 @@ export const pages: Record<string, MarketingPage> = {
     slug: "/about",
     title: "About Ignitz | Training, AI Products, Expert Teams",
     description:
-      "Learn how Ignitz combines capability building, AI product delivery, and embedded expert teams.",
+      "How Ignitz combines training, products, and teams.",
     hero: {
       eyebrow: "About Ignitz",
       title: "A delivery partner for teams learning, building, and scaling AI.",
-      lead: "Ignitz connects consulting discipline, product engineering, AI delivery, and workforce support into one practical operating model.",
+      lead: "Consulting, product engineering, and delivery support.",
       primaryCta: { label: "Meet the team", href: "/contact" },
       secondaryCta: { label: "View careers", href: "/careers" },
     },
@@ -127,11 +126,11 @@ export const pages: Record<string, MarketingPage> = {
     slug: "/careers",
     title: "Careers at Ignitz | Learn, Build, Deliver",
     description:
-      "Join a team that combines consulting discipline, AI product building, and practical learning.",
+      "Join a team building practical AI work.",
     hero: {
       eyebrow: "Careers",
       title: "Build the future of work with us.",
-      lead: "Join a team working across training, product delivery, and expert services for enterprise clients.",
+      lead: "Work across training, products, and delivery.",
       primaryCta: { label: "View open roles", href: "/contact" },
       secondaryCta: { label: "Learn about Ignitz", href: "/about" },
     },
@@ -141,11 +140,11 @@ export const pages: Record<string, MarketingPage> = {
     slug: "/contact",
     title: "Contact Ignitz | Book a Workshop or Project Call",
     description:
-      "Talk to Ignitz about corporate training, AI product development, or embedded expert teams.",
+      "Talk to Ignitz about training, products, or teams.",
     hero: {
       eyebrow: "Contact",
       title: "Book a workshop or start a build.",
-      lead: "Tell us what you are trying to train, build, or staff. We will route the conversation to the right lead.",
+      lead: "Tell us what you need. We’ll route it.",
       primaryCta: { label: "Submit inquiry", href: "#contact-form" },
       secondaryCta: { label: "WhatsApp Ignitz", href: "https://wa.me/919392796918" },
     },

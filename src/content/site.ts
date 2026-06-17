@@ -28,8 +28,7 @@ import type {
 export const site = {
   name: "Ignitz",
   url: "https://www.ignitz.net",
-  description:
-    "Ignitz builds AI-powered products, operational systems, and healthcare technologies.",
+  description: "Ignitz builds AI products and operational systems.",
   address:
     "4th Floor, Plot No-12, Survey No 1009, KPHB Phase 6, Kukatpally, Hyderabad, Telangana 500085, India",
   phone: "+91 93927 96918",
@@ -46,10 +45,10 @@ export const navItems: NavItem[] = [
 ];
 
 export const proofMetrics: ProofMetric[] = [
-  { value: "MS", label: "Microsoft for Startups backed company", kicker: "Ecosystem" },
-  { value: "AI", label: "OpenAI, Azure OpenAI, agents, RAG, Realtime", kicker: "Engineering" },
-  { value: "Ops", label: "storefronts, dashboards, automation platforms", kicker: "Business systems" },
-  { value: "HYD", label: "Hyderabad delivery base with builder community", kicker: "Operating base" },
+  { value: "MS", label: "Microsoft for Startups", kicker: "Ecosystem" },
+  { value: "AI", label: "OpenAI, Azure OpenAI, agents", kicker: "Engineering" },
+  { value: "Ops", label: "storefronts and dashboards", kicker: "Business" },
+  { value: "HYD", label: "Hyderabad delivery base", kicker: "Operating base" },
 ];
 
 export const brandNarrative: BrandNarrative = {
@@ -80,7 +79,7 @@ export const knowledgeGraphNodes: KnowledgeGraphNode[] = [
     id: "ignitz",
     label: "Ignitz",
     group: "core",
-    summary: "The central operating layer connecting AI products, services, talent, and vertical systems.",
+    summary: "The central layer connecting products, services, and teams.",
     href: "/about",
     x: 50,
     y: 50,
@@ -89,7 +88,7 @@ export const knowledgeGraphNodes: KnowledgeGraphNode[] = [
     id: "health",
     label: "Health",
     group: "health",
-    summary: "Clinic workflows, patient systems, dashboards, and AI-assisted healthcare applications.",
+    summary: "Clinic workflows, patient systems, and AI apps.",
     href: "/health",
     x: 50,
     y: 15,
@@ -98,7 +97,7 @@ export const knowledgeGraphNodes: KnowledgeGraphNode[] = [
     id: "business",
     label: "Business Solutions",
     group: "business",
-    summary: "Storefront OS, operations dashboards, workflow automation, CRM, reports, and admin control.",
+    summary: "Storefront OS, dashboards, automation, and admin control.",
     href: "/business-systems",
     x: 81,
     y: 30,
@@ -107,7 +106,7 @@ export const knowledgeGraphNodes: KnowledgeGraphNode[] = [
     id: "products",
     label: "AI Products",
     group: "labs",
-    summary: "Reusable products like Evaluate Yourself, MindSpan, agents, copilots, and knowledge systems.",
+    summary: "Reusable products like MindSpan and Evaluate Yourself.",
     href: "/ai-products",
     x: 82,
     y: 70,
@@ -116,7 +115,7 @@ export const knowledgeGraphNodes: KnowledgeGraphNode[] = [
     id: "automation",
     label: "Automation",
     group: "business",
-    summary: "AI APIs, RAG pipelines, Realtime interfaces, and automation flows that reduce repeated work.",
+    summary: "APIs, RAG, Realtime, and automation flows.",
     href: "/ai-product-development",
     x: 50,
     y: 86,
@@ -125,7 +124,7 @@ export const knowledgeGraphNodes: KnowledgeGraphNode[] = [
     id: "recruitment",
     label: "Recruitment",
     group: "talent",
-    summary: "Embedded teams, intern cohorts, hiring pipelines, and builder communities for execution capacity.",
+    summary: "Embedded teams, interns, and hiring pipelines.",
     href: "/expert-teams",
     x: 18,
     y: 70,
@@ -134,7 +133,7 @@ export const knowledgeGraphNodes: KnowledgeGraphNode[] = [
     id: "training",
     label: "Training",
     group: "learning",
-    summary: "Learning programs, hackathons, feedback systems, and engineering memory for compounding capability.",
+    summary: "Learning programs, hackathons, and feedback loops.",
     href: "/training",
     x: 19,
     y: 30,
@@ -143,7 +142,7 @@ export const knowledgeGraphNodes: KnowledgeGraphNode[] = [
     id: "consulting",
     label: "Consulting",
     group: "business",
-    summary: "Strategy, systems design, AI readiness, governance, delivery pods, and transformation support.",
+    summary: "Strategy, AI readiness, governance, and pods.",
     href: "/training/ai-leadership-and-readiness",
     x: 31,
     y: 18,
@@ -152,7 +151,7 @@ export const knowledgeGraphNodes: KnowledgeGraphNode[] = [
     id: "labs",
     label: "Labs",
     group: "labs",
-    summary: "Incubation, hackathons, internal R&D, product experiments, and future founder energy.",
+    summary: "Incubation, hackathons, and product experiments.",
     href: "/labs",
     x: 69,
     y: 18,
@@ -353,12 +352,21 @@ export const flagshipProducts: FlagshipProduct[] = [
   {
     name: "Evaluate Yourself",
     status: "Flagship product in progress",
+<<<<<<< HEAD
     tagline: "Structured self-evaluation for learners, interns, and capability teams.",
     summary:
       "Evaluate Yourself is a focused platform direction for assessment, feedback, progress visibility, and learning accountability.",
     useCase: "Assessment, feedback, progress visibility, and learner accountability.",
     targetUser: "Students, interns, training cohorts, and capability teams.",
     proof: "Designed as a product, not a campaign page.",
+=======
+    tagline: "A self-evaluation system for learners and teams.",
+    summary:
+      "A focused platform for assessment, feedback, and progress.",
+    useCase: "Assessment, feedback, and progress tracking.",
+    targetUser: "Students, interns, and training cohorts.",
+    proof: "Built as a product.",
+>>>>>>> 286696b (Refine Ignitz site copy and styling)
     href: "/ai-products",
     ctaLabel: "View product direction",
     accent: "flagship",
@@ -366,12 +374,19 @@ export const flagshipProducts: FlagshipProduct[] = [
   {
     name: "MindSpan",
     status: "Knowledge infrastructure",
-    tagline: "See the spread of your thinking.",
+    tagline: "See how your thinking spreads.",
     summary:
+<<<<<<< HEAD
       "A Markdown-based knowledge bandwidth visualizer that turns notes, reviews, mistakes, and lessons into a living growth map.",
     useCase: "Engineering memory, review learning, cognitive maps, and knowledge growth.",
     targetUser: "Builders, reviewers, mentors, and AI-assisted engineering teams.",
     proof: "Shows Ignitz's belief that learning should compound.",
+=======
+      "A Markdown-based map for notes, reviews, and lessons.",
+    useCase: "Engineering memory and learning.",
+    targetUser: "Builders, reviewers, and mentors.",
+    proof: "Learning should compound.",
+>>>>>>> 286696b (Refine Ignitz site copy and styling)
     href: "/incubator",
     ctaLabel: "Open incubator",
     accent: "memory",
@@ -379,12 +394,21 @@ export const flagshipProducts: FlagshipProduct[] = [
   {
     name: "Storefront OS",
     status: "Business systems direction",
+<<<<<<< HEAD
     tagline: "Operations infrastructure for teams that need control.",
     summary:
       "Dynamic storefronts, admin dashboards, inventory-aware workflows, reports, exports, and operating control without constant developer dependency.",
     useCase: "Storefronts, admin systems, reports, dashboards, and workflow control.",
     targetUser: "Business owners and operators who need self-managed systems.",
     proof: "Business owners should control daily operations.",
+=======
+    tagline: "Operations infrastructure for businesses.",
+    summary:
+      "Storefronts, dashboards, workflows, and exports without heavy dev work.",
+    useCase: "Storefronts, admin systems, and reports.",
+    targetUser: "Owners and operators.",
+    proof: "Owners should control operations.",
+>>>>>>> 286696b (Refine Ignitz site copy and styling)
     href: "/business-systems",
     ctaLabel: "Explore systems",
     accent: "operations",
@@ -392,12 +416,19 @@ export const flagshipProducts: FlagshipProduct[] = [
   {
     name: "NexGen-AI Hackathon",
     status: "Builder pipeline",
-    tagline: "AI learning through rapid product building.",
+    tagline: "Learn AI by building fast.",
     summary:
+<<<<<<< HEAD
       "Hackathons are treated as capability accelerators: Azure/OpenAI tooling, mentorship, incubation paths, and exposure to real AI workflows.",
     useCase: "Rapid prototypes, AI upskilling, mentorship, and product discovery.",
     targetUser: "Students, interns, campus builders, and future founders.",
     proof: "A pipeline for students, builders, and future founders.",
+=======
+      "Hackathons as fast capability builders.",
+    useCase: "Prototypes, upskilling, and discovery.",
+    targetUser: "Students, interns, and future founders.",
+    proof: "A pipeline for builders.",
+>>>>>>> 286696b (Refine Ignitz site copy and styling)
     href: "/hackathons",
     ctaLabel: "See hackathons",
     accent: "community",
@@ -407,43 +438,61 @@ export const flagshipProducts: FlagshipProduct[] = [
 export const aiSystemsStack: AISystemsStackItem[] = [
   {
     layer: "01",
+<<<<<<< HEAD
     title: "Data foundation",
     summary: "Knowledge sources, structured records, operating data, and retrieval-ready foundations.",
+=======
+    title: "Data layer",
+    summary: "Knowledge sources and structured data.",
+>>>>>>> 286696b (Refine Ignitz site copy and styling)
     signal: "RAG / databases / cloud",
     accent: "data",
   },
   {
     layer: "02",
     title: "AI agents",
+<<<<<<< HEAD
     summary: "Copilots, assistants, Realtime interfaces, and OpenAI/Azure OpenAI workflows.",
+=======
+    summary: "Copilots, assistants, and realtime workflows.",
+>>>>>>> 286696b (Refine Ignitz site copy and styling)
     signal: "agents / copilots / realtime",
     accent: "agents",
   },
   {
     layer: "03",
     title: "Workflow automation",
+<<<<<<< HEAD
     summary: "Business rules, handoffs, reporting loops, notifications, and governed acceleration.",
+=======
+    summary: "Business rules, handoffs, and notifications.",
+>>>>>>> 286696b (Refine Ignitz site copy and styling)
     signal: "automation / integrations",
     accent: "automation",
   },
   {
     layer: "04",
     title: "Admin systems",
-    summary: "Storefront control, dashboards, inventory-aware workflows, exports, and operating views.",
+    summary: "Storefront control, dashboards, and exports.",
     signal: "dashboards / portals",
     accent: "admin",
   },
   {
     layer: "05",
+<<<<<<< HEAD
     title: "Capability memory",
     summary: "Feedback, reviews, lessons, mistakes, and notes turned into reusable team knowledge.",
+=======
+    title: "Learning memory",
+    summary: "Feedback and notes turned into reusable knowledge.",
+>>>>>>> 286696b (Refine Ignitz site copy and styling)
     signal: "MindSpan / learning maps",
     accent: "memory",
   },
   {
     layer: "06",
     title: "Talent pipeline",
-    summary: "Hackathons, interns, embedded teams, recruitment support, and builder community.",
+    summary: "Hackathons, interns, and embedded teams.",
     signal: "NexGen-AI / interns",
     accent: "talent",
   },
@@ -452,24 +501,25 @@ export const aiSystemsStack: AISystemsStackItem[] = [
 export const engineeringCulture: EngineeringCultureItem[] = [
   {
     title: "AI-first engineering",
-    summary: "OpenAI APIs, GPT Realtime systems, Azure OpenAI, agents, RAG pipelines, and automation workflows.",
+    summary: "OpenAI, Azure OpenAI, agents, and automation.",
   },
   {
     title: "Engineering memory",
-    summary: "Reusable PR review learning, Markdown knowledge systems, cognitive maps, and learning velocity tracking.",
+    summary: "PR learning, knowledge systems, and review memory.",
   },
   {
     title: "Lean infrastructure",
-    summary: "Ubuntu, Nginx, Azure, secure admin systems, scalable databases, and sustainable multi-app deployments.",
+    summary: "Ubuntu, Nginx, Azure, and secure admin systems.",
   },
   {
     title: "Practical business impact",
-    summary: "AI-enabled applications, dashboards, storefront systems, workflow automation, and customer management.",
+    summary: "AI apps, dashboards, and workflow automation.",
   },
 ];
 
 export const communitySignals: CommunitySignal[] = [
   {
+<<<<<<< HEAD
     label: "Talent",
     title: "Build capability where delivery happens.",
     summary: "Ignitz creates exposure, mentorship, and product-building opportunities for students and young engineers.",
@@ -483,6 +533,21 @@ export const communitySignals: CommunitySignal[] = [
     label: "Incubation",
     title: "Turn experiments into reusable IP.",
     summary: "Internal R&D, product experiments, and founder-led building convert lessons into reusable systems.",
+=======
+    label: "Students",
+    title: "Talent exists everywhere.",
+    summary: "Exposure, mentorship, and real product work.",
+  },
+  {
+    label: "Hackathons",
+    title: "Build first, learn fast.",
+    summary: "Turn feedback into practical prototypes.",
+  },
+  {
+    label: "Incubation",
+    title: "Ideas become deployable products.",
+    summary: "R&D and experiments become reusable systems.",
+>>>>>>> 286696b (Refine Ignitz site copy and styling)
   },
 ];
 
@@ -491,15 +556,15 @@ export const divisions: Division[] = [
     name: "Ignitz Labs",
     shortName: "Labs",
     href: "/labs",
-    positioning: "Building AI-native products and intelligent systems.",
+    positioning: "Building AI-native products.",
     includedCapabilities: [
-      "MindSpan and AI product concepts",
+      "MindSpan and product concepts",
       "AI agents and copilots",
-      "Knowledge graph systems",
-      "Developer tools and automation products",
-      "Incubation projects and hackathons",
+      "Knowledge systems",
+      "Automation tools",
+      "Incubation and hackathons",
     ],
-    proofLine: "Internal R&D becomes product proof, reusable IP, and delivery strength.",
+    proofLine: "R&D becomes product proof.",
     accent: "labs",
     relatedLinks: [
       { label: "AI products", href: "/ai-products" },
@@ -511,15 +576,15 @@ export const divisions: Division[] = [
     name: "Ignitz Business Solutions",
     shortName: "Business Systems",
     href: "/business-systems",
-    positioning: "AI-powered business systems for modern operations.",
+    positioning: "AI-powered business systems.",
     includedCapabilities: [
       "Commerce and storefront infrastructure",
-      "Invoice, admin, and ERP-lite systems",
+      "Invoice and admin systems",
       "CRM and workflow integrations",
       "Operational dashboards",
-      "AI automation for business processes",
+      "AI automation",
     ],
-    proofLine: "Operational software positioned as infrastructure, not web development.",
+    proofLine: "Operational software as infrastructure.",
     accent: "business",
     relatedLinks: [
       { label: "AI product development", href: "/ai-product-development" },
@@ -531,15 +596,15 @@ export const divisions: Division[] = [
     name: "Ignitz Health",
     shortName: "Health",
     href: "/health",
-    positioning: "AI-assisted healthcare applications and intelligent patient workflows.",
+    positioning: "AI-assisted healthcare applications.",
     includedCapabilities: [
       "Clinic and appointment workflows",
-      "Patient systems and health dashboards",
-      "AI triage and medical assistants",
+      "Patient systems and dashboards",
+      "AI triage and assistants",
       "Healthcare analytics",
-      "Secure workflow automation",
+      "Secure automation",
     ],
-    proofLine: "A focused vertical for higher-trust, healthcare-ready applications.",
+    proofLine: "A focused healthcare vertical.",
     accent: "health",
     relatedLinks: [
       { label: "Explore use cases", href: "/health" },
@@ -552,9 +617,8 @@ export const pillars: ServicePillar[] = [
   {
     title: "Corporate Training",
     href: "/training",
-    summary:
-      "Practical consulting, AI readiness, and delivery programs for enterprise teams.",
-    proof: "Programs designed for measurable capability lift, not passive learning.",
+    summary: "Consulting, AI readiness, and delivery programs.",
+    proof: "Designed for capability lift.",
     kicker: "01 / Train",
     visualLabel: "Capability",
     stat: "Programs",
@@ -563,9 +627,8 @@ export const pillars: ServicePillar[] = [
   {
     title: "AI Product Development",
     href: "/ai-product-development",
-    summary:
-      "Co-build pilots, agents, data workflows, and production AI products with your teams.",
-    proof: "Delivery governance keeps pilots connected to business outcomes.",
+    summary: "Co-build pilots, agents, and production AI products.",
+    proof: "Governance keeps work tied to outcomes.",
     kicker: "02 / Build",
     visualLabel: "Product",
     stat: "Pilot to production",
@@ -574,9 +637,8 @@ export const pillars: ServicePillar[] = [
   {
     title: "Expert Teams",
     href: "/expert-teams",
-    summary:
-      "Embed consultants, engineers, analysts, and AI specialists where execution matters.",
-    proof: "Flexible pods and specialist augmentation without lowering standards.",
+    summary: "Embed consultants, engineers, and analysts.",
+    proof: "Flexible pods without lowering standards.",
     kicker: "03 / Scale",
     visualLabel: "Embedded",
     stat: "Pods",
@@ -588,20 +650,17 @@ export const outcomes: OutcomeCard[] = [
   {
     metric: "6 wk",
     title: "AI readiness sprint",
-    summary:
-      "A leadership cohort moves from use-case noise to prioritized roadmap, governance, and pilot backlog.",
+    summary: "Move from use cases to a prioritized roadmap.",
   },
   {
     metric: "2x",
     title: "Faster product discovery",
-    summary:
-      "Cross-functional teams align around architecture, workflow fit, data availability, and delivery risk earlier.",
+    summary: "Align on architecture, fit, and delivery risk earlier.",
   },
   {
     metric: "Pod",
     title: "Embedded execution capacity",
-    summary:
-      "Specialists join the client cadence and transfer knowledge as the product or program matures.",
+    summary: "Specialists join the cadence and transfer knowledge.",
   },
 ];
 
@@ -631,22 +690,22 @@ export const process: ProcessStep[] = [
 export const industries: IndustryCard[] = [
   {
     title: "Consulting and transformation",
-    summary: "Structured problem solving, AI fluency, and delivery discipline.",
+    summary: "Structured problem solving and AI fluency.",
     visualLabel: "Advisory",
   },
   {
     title: "Technology and SaaS",
-    summary: "Product engineering, AI workflows, DevOps, and delivery pods.",
+    summary: "Product engineering, AI workflows, and pods.",
     visualLabel: "Product",
   },
   {
     title: "Financial services",
-    summary: "Governed AI adoption, secure data workflows, and workforce readiness.",
+    summary: "Governed AI adoption and secure workflows.",
     visualLabel: "Governance",
   },
   {
     title: "Operations-heavy enterprises",
-    summary: "Automation, analytics, and capability building for complex teams.",
+    summary: "Automation, analytics, and capability building.",
     visualLabel: "Operations",
   },
 ];
@@ -654,13 +713,11 @@ export const industries: IndustryCard[] = [
 export const faqs: FAQItem[] = [
   {
     question: "Can Ignitz support both training and implementation?",
-    answer:
-      "Yes. The model is designed to connect capability building with hands-on delivery so teams can learn while real products or programs move forward.",
+    answer: "Yes. Training and delivery are designed to work together.",
   },
   {
     question: "Is this a staffing model or a consulting model?",
-    answer:
-      "It can be either. Ignitz can place specialists, run delivery pods, or lead short strategy and training engagements depending on the client need.",
+    answer: "Either. We can place specialists, run pods, or lead short engagements.",
   },
   {
     question: "Are the client logos and metrics final?",
