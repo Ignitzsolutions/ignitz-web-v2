@@ -4,10 +4,10 @@ export function BrandLogo({ className = "" }: { className?: string }) {
   return (
     <Image
       className={`brand-logo ${className}`.trim()}
-      src="/brand/ignitz-logo.png"
+      src="/brand/ignitz-logo.svg"
       alt=""
-      width={593}
-      height={108}
+      width={640}
+      height={120}
       priority
     />
   );

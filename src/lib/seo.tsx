@@ -29,7 +29,7 @@ export function organizationSchema() {
     "@type": "Organization",
     name: site.name,
     url: site.url,
-    logo: new URL("/brand/ignitz-logo.png", site.url).toString(),
+    logo: new URL("/brand/ignitz-logo.svg", site.url).toString(),
     email: site.email,
     telephone: site.phone,
     address: {

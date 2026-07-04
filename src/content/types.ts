@@ -4,6 +4,13 @@ export type CTA = {
   variant?: "primary" | "secondary" | "text";
 };
 
+export type BrandLogoAsset = {
+  label: string;
+  src: string;
+  width: number;
+  height: number;
+};
+
 export type NavItem = {
   label: string;
   href: string;

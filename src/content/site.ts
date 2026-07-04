@@ -23,12 +23,13 @@ import type {
   CommunitySignal,
   RecognitionSignal,
   ServicePillar,
+  BrandLogoAsset,
 } from "./types";
 
 export const site = {
   name: "Ignitz",
   url: "https://www.ignitz.net",
-  description: "Ignitz builds AI products and operational systems.",
+  description: "Ignitz builds AI software and operating systems for modern teams.",
   address:
     "4th Floor, Plot No-12, Survey No 1009, KPHB Phase 6, Kukatpally, Hyderabad, Telangana 500085, India",
   phone: "+91 93927 96918",
@@ -49,6 +50,15 @@ export const proofMetrics: ProofMetric[] = [
   { value: "AI", label: "OpenAI, Azure OpenAI, agents", kicker: "Engineering" },
   { value: "Ops", label: "storefronts and dashboards", kicker: "Business" },
   { value: "HYD", label: "Hyderabad delivery base", kicker: "Operating base" },
+];
+
+export const homepageLogos: BrandLogoAsset[] = [
+  { label: "OpenAI", src: "/brand/logos/openai.svg", width: 128, height: 32 },
+  { label: "Anthropic", src: "/brand/logos/anthropic.svg", width: 132, height: 32 },
+  { label: "NVIDIA", src: "/brand/logos/nvidia.svg", width: 118, height: 32 },
+  { label: "Microsoft", src: "/brand/logos/microsoft.svg", width: 124, height: 32 },
+  { label: "Google Cloud", src: "/brand/logos/google-cloud.svg", width: 148, height: 32 },
+  { label: "Cloudflare", src: "/brand/logos/cloudflare.svg", width: 128, height: 32 },
 ];
 
 export const brandNarrative: BrandNarrative = {
