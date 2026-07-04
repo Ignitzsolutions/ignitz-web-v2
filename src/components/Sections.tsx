@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   aiSystemsStack,
   capabilityNodes,
@@ -9,6 +8,7 @@ import {
   divisions,
   homepagePlatformPillars,
   homepageProofStories,
+  heroTypingPhrases,
   proofMetrics,
 } from "@/content/site";
 import type {
@@ -23,6 +23,7 @@ import type {
 import { ContactForm } from "./ContactForm";
 import { FAQAccordion } from "./FAQAccordion";
 import { BrandLogo } from "./BrandLogo";
+import { HeroTypingText } from "./HeroTypingText";
 import { ProjectQuoteEstimator } from "./ProjectQuoteEstimator";
 import { RecruitmentIntelligenceMap } from "./RecruitmentIntelligenceMap";
 
@@ -58,54 +59,43 @@ export function PrecisionHome() {
 
 function PrecisionHero() {
   const heroChips = [
-    "AI systems",
-    "Workflow design",
+    "AI strategy",
     "Automation",
-    "Embedded teams",
     "Training",
+    "Recruitment systems",
+    "Embedded pods",
     "Governance",
   ];
 
   return (
     <section className="precision-hero platform-home-hero">
-      <div className="precision-hero-shell">
-        <div className="precision-hero-copy reveal">
-          <p className="eyebrow hero-premium-badge">AI operating partner</p>
-          <h1>Build AI systems teams can actually run.</h1>
-          <p>
-            Ignitz designs the workflow, product layer, automation, and training around the way
-            enterprise teams really operate.
-          </p>
-          <div className="hero-actions" aria-label="Homepage actions">
-            <Link className="button button-primary" href="/contact">
-              Start a build
-            </Link>
-            <Link className="button button-secondary" href="#capability-architecture">
-              See the operating model
-            </Link>
-          </div>
-          <ul className="hero-signal-list" aria-label="Ignitz consulting capabilities">
-            {heroChips.map((signal) => (
-              <li className="hero-signal" key={signal}>
-                {signal}
-              </li>
-            ))}
-          </ul>
+      <div className="precision-hero-copy reveal">
+        <p className="eyebrow hero-premium-badge">AI transformation consulting</p>
+        <h1>
+          <span>We create real impact with AI</span>
+          <em>
+            <HeroTypingText phrases={heroTypingPhrases} />
+          </em>
+        </h1>
+        <p>
+          Ignitz guides enterprise teams from strategy to systems, adoption, and measurable
+          operating change.
+        </p>
+        <div className="hero-actions" aria-label="Homepage actions">
+          <Link className="button button-primary" href="/contact">
+            Book an AI transformation call
+          </Link>
+          <Link className="button button-secondary" href="/business-systems">
+            Explore services
+          </Link>
         </div>
-        <div className="precision-hero-visual" aria-label="Ignitz operating system visual">
-          <Image
-            alt="Ignitz operating system visual"
-            className="hero-visual-image"
-            height={720}
-            priority
-            src="/brand/ignitz-hero-visual.svg"
-            width={960}
-          />
-          <div className="hero-visual-caption">
-            <span>Operating model</span>
-            <strong>Signal, review, and transfer stay connected.</strong>
-          </div>
-        </div>
+        <ul className="hero-signal-list" aria-label="Ignitz consulting capabilities">
+          {heroChips.map((signal) => (
+            <li className="hero-signal" key={signal}>
+              {signal}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -116,7 +106,7 @@ function HomepageConsoleShowcase() {
     <section className="homepage-console-showcase" aria-labelledby="homepage-console-title">
       <div className="console-showcase-copy">
         <p className="eyebrow">Platform preview</p>
-        <h2 id="homepage-console-title">The operating board explains the system after the promise.</h2>
+        <h2 id="homepage-console-title">The operating board lives after the promise.</h2>
         <p>
           First we make the value clear. Then the preview shows how Ignitz turns workflow
           context, AI action, review, stack, and outcomes into one running system.
@@ -128,17 +118,17 @@ function HomepageConsoleShowcase() {
 }
 
 function HeroOperatingBoard() {
-  const navItems = ["Intake", "Context", "Agents", "Review", "Memory"];
+  const navItems = ["Intake", "Knowledge", "Agents", "Review", "Memory"];
   const tasks = [
-    { label: "Workflow brief", status: "Synced" },
-    { label: "Action agent", status: "Running" },
-    { label: "Human review", status: "Queued" },
+    { label: "Client role requirements", status: "Synced" },
+    { label: "Candidate screening agent", status: "Running" },
+    { label: "Recruiter review", status: "Queued" },
   ];
-  const integrations = ["Docs", "CRM", "API", "Email"];
+  const integrations = ["ATS", "CRM", "Docs", "Email"];
   const outcomeRows = [
-    { label: "Cycle time", value: "-32%" },
-    { label: "Handoff path", value: "Mapped" },
-    { label: "Operating memory", value: "Ready" },
+    { label: "Screening time", value: "-32%" },
+    { label: "Shortlist path", value: "Mapped" },
+    { label: "Hiring memory", value: "Ready" },
   ];
 
   return (
@@ -155,7 +145,7 @@ function HeroOperatingBoard() {
         <div className="product-console-topline">
           <div>
             <span>Active AI system</span>
-            <strong>Workflow Operations Workspace</strong>
+            <strong>Recruitment Operations Workspace</strong>
           </div>
           <small>Live</small>
         </div>
@@ -180,8 +170,8 @@ function HeroOperatingBoard() {
           </section>
           <section className="console-policy-card" aria-label="Review and policy">
             <span>Review policy</span>
-            <strong>Human review before release</strong>
-            <p>Owners, context, exceptions, and decisions stay attached to the workflow state.</p>
+            <strong>Human review before candidate submission</strong>
+            <p>Role owners, candidate context, screening notes, and recruiter decisions stay attached.</p>
           </section>
           <section className="console-integrations" aria-label="Connected platforms">
             <span>Connected stack</span>
@@ -217,6 +207,12 @@ function PlatformOperatingSystem() {
         </p>
       </div>
       <div className="platform-system-stage" aria-label="Ignitz platform operating system">
+        <div className="platform-system-orbit" aria-hidden="true">
+          <span>Data</span>
+          <span>Agents</span>
+          <span>Ops</span>
+          <span>Memory</span>
+        </div>
         <div className="platform-system-panel">
           <span>Live system model</span>
           <strong>Workflow → AI product → operating memory</strong>
@@ -438,21 +434,59 @@ function HeroPlatformPanel({ page }: { page: MarketingPage }) {
 }
 
 function ClientSignalStrip() {
-  const logoSignals = companySignals.filter((signal) => signal.status !== "placeholder");
+  const signalLogos: Record<string, { alt: string; src: string }> = {
+    Qualcomm: {
+      alt: "Qualcomm logo",
+      src: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Qualcomm-Logo.svg",
+    },
+    Shell: {
+      alt: "Shell logo",
+      src: "https://upload.wikimedia.org/wikipedia/en/e/e8/Shell_logo.svg",
+    },
+    "Microsoft for Startups": {
+      alt: "Microsoft logo",
+      src: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+    },
+    OpenAI: {
+      alt: "OpenAI logo",
+      src: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
+    },
+    Azure: {
+      alt: "Microsoft Azure logo",
+      src: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg",
+    },
+  };
+  const logoSignals = companySignals.flatMap((signal) => {
+    const logo = signalLogos[signal.label];
+
+    return logo ? [{ ...signal, logo }] : [];
+  });
+  const marqueeSignals = [...logoSignals, ...logoSignals];
 
   return (
     <div className="client-signal-strip" aria-label="Ignitz ecosystem and platform signal strip">
       <div className="client-signal-heading">
         <span className="client-signal-label">Ecosystem, platform, and enterprise signals</span>
-        <p>Approved platform references and buyer contexts, presented as a clean proof rail rather than a logo wall.</p>
+        <p>A growing proof library for platform references, buyer audiences, and draft enterprise names.</p>
       </div>
       <div className="client-signal-track">
-        {logoSignals.map((signal) => {
+        {marqueeSignals.map((signal, index) => {
+          const logoSlug = signal.label
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-|-$/g, "");
+
           return (
-            <article className={`client-signal-tile signal-${signal.status}`} key={`${signal.category}-${signal.label}`}>
-              <span>{signal.category}</span>
-              <strong>{signal.label}</strong>
-              <p>{signal.publicNote}</p>
+            <article
+              className={`client-signal-tile signal-${signal.status}`}
+              key={`${signal.category}-${signal.label}-${index}`}
+            >
+              <span
+                aria-label={signal.logo.alt}
+                className={`client-signal-logo logo-${logoSlug}`}
+                role="img"
+                style={{ backgroundImage: `url("${signal.logo.src}")` }}
+              />
             </article>
           );
         })}

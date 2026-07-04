@@ -1,23 +1,12 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Inter, Space_Grotesk } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import { SiteShell } from "@/components/SiteShell";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const jetBrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-ibm-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -35,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${ibmPlexMono.variable}`}>
+    <html lang="en" className={jetBrains.variable}>
       <body>
         <SiteShell>{children}</SiteShell>
       </body>
