@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import {
   caseStudies,
   contactChannels,
@@ -42,7 +42,6 @@ export function PrecisionHome() {
   return (
     <>
       <PrecisionHero />
-      <HomepageLogoRail />
       <PlatformOperatingSystem />
       <HomepageTrustBand />
       <FinalCTA />
@@ -54,6 +53,7 @@ function PrecisionHero() {
   return (
     <section className="home-hero" aria-labelledby="home-hero-title">
       <div className="home-hero-inner">
+        <BrandLogo className="home-hero-brand" />
         <p className="eyebrow">AI SaaS for modern teams</p>
         <h1 id="home-hero-title">Build the AI layer your team can actually run.</h1>
         <p className="home-hero-lead">
@@ -68,29 +68,6 @@ function PrecisionHero() {
             See the operating model
           </Link>
         </div>
-        <p className="home-hero-note">Strategy / product / automation / transfer</p>
-      </div>
-    </section>
-  );
-}
-
-function HomepageLogoRail() {
-  return (
-    <section className="home-logo-rail" aria-labelledby="home-logo-rail-title">
-      <div className="home-section-intro">
-        <p className="eyebrow">Ecosystem signals</p>
-        <h2 id="home-logo-rail-title">Built on the platforms teams already trust.</h2>
-        <p>
-          Local SVG marks keep the page fast and consistent while still showing the AI and
-          infrastructure ecosystem the company works inside.
-        </p>
-      </div>
-      <div className="home-logo-grid" aria-label="Homepage ecosystem logos">
-        {homepageLogos.map((logo) => (
-          <figure className="home-logo-card" key={logo.label}>
-            <Image alt={logo.label} height={logo.height} src={logo.src} width={logo.width} />
-          </figure>
-        ))}
       </div>
     </section>
   );

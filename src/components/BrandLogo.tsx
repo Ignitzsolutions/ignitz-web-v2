@@ -5,7 +5,7 @@ export function BrandLogo({ className = "" }: { className?: string }) {
     <Image
       className={`brand-logo ${className}`.trim()}
       src="/brand/ignitz-logo.svg"
-      alt=""
+      alt="Ignitz"
       width={640}
       height={120}
       priority
