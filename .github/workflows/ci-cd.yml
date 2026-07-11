@@ -48,7 +48,7 @@ jobs:
       DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
       DEPLOY_DIR: /var/www/ignitz-web-v2/current
       DEPLOY_SERVICE: ignitz-web-v2.service
-      DEPLOY_PORT: "3001"
+      DEPLOY_PORT: "3000"
 
     steps:
       - name: Checkout repository
