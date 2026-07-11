@@ -64,10 +64,27 @@ jobs:
 
       - name: Upload archive to server
         run: |
-          sshpass -p "$DEPLOY_PASSWORD" scp \
+          retry() {
+            local attempts=3
+            local delay=10
+            local attempt=1
+
+            until "$@"; do
+              if [ "$attempt" -ge "$attempts" ]; then
+                return 1
+              fi
+
+              sleep "$delay"
+              attempt=$((attempt + 1))
+              delay=$((delay * 2))
+            done
+          }
+
+          retry sshpass -p "$DEPLOY_PASSWORD" scp \
             -o StrictHostKeyChecking=accept-new \
             -o PreferredAuthentications=password \
             -o PubkeyAuthentication=no \
+            -o ConnectTimeout=20 \
             ignitz-web-v2.tar.gz \
             "${DEPLOY_USER}@${DEPLOY_HOST}:/root/ignitz-web-v2.tar.gz"
 
@@ -92,5 +109,6 @@ jobs:
             -o StrictHostKeyChecking=accept-new \
             -o PreferredAuthentications=password \
             -o PubkeyAuthentication=no \
+            -o ConnectTimeout=20 \
             "${DEPLOY_USER}@${DEPLOY_HOST}" \
             'bash -s' < /tmp/ignitz-remote-deploy.sh
