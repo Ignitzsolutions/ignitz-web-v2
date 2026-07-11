@@ -35,3 +35,17 @@ After implementation:
 - Check mobile and keyboard behavior.
 - Review loading, empty, and error states.
 - Report any unresolved risks or assumptions.
+
+## Skill Selection
+- If the user does not name a skill, choose the required skills automatically
+  from the task.
+- Use `frontend-ui-engineering` for UI implementation.
+- Use `frontend-skill`, `use-mcp`, and `ponytail` for landing pages or visual
+  polish work.
+- Use `accessibility` for accessibility changes and checks.
+- Use `performance` and `core-web-vitals` for performance work.
+- Use `seo` for search optimization work.
+- Use `ponytail-review` for simplification or over-engineering reviews.
+- Use `gh-fix-ci` for GitHub Actions or CI failures.
+- Use `notion-knowledge-capture` for product or workflow documentation.
+- Use `openai-docs` for OpenAI product guidance.
