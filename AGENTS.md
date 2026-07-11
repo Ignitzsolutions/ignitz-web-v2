@@ -48,3 +48,22 @@ teams. The visual direction is editorial, high-trust, precise, and light-only.
 - Verify responsive behavior at mobile, tablet, and desktop widths.
 - Flag any missing legal copy, logo files, customer permissions, or production
   form endpoints.
+
+## What Belongs Where
+- `AGENTS.md`: permanent project facts and non-negotiable constraints.
+- `SKILL.md`: task-specific workflows such as frontend implementation, UI
+  review, security audit, database migration, release preparation, performance
+  audit, and accessibility audit.
+- `.cursor/rules/*.mdc`: narrow file- or directory-scoped rules.
+- `docs/*.md`: detailed product and architecture references.
+- Do not put the entire software-engineering handbook into one always-on file.
+
+## Scope Examples
+- `frontend rules` only for `src/components/**`
+- `database rules` only for `src/db/**`
+- `testing rules` only for `tests/**`
+- `API rules` only for `src/app/api/**`
+
+## Skill Baseline
+- Start with `frontend-ui-engineering` for UI implementation work.
+- Use additional skills only when the task clearly calls for them.
