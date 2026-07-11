@@ -20,7 +20,6 @@ import type {
 } from "@/content/types";
 import { ContactForm } from "./ContactForm";
 import { FAQAccordion } from "./FAQAccordion";
-import { HomeSignal } from "./HomeSignal";
 import { BrandLogo } from "./BrandLogo";
 import { ProjectQuoteEstimator } from "./ProjectQuoteEstimator";
 
@@ -69,7 +68,6 @@ function PrecisionHero() {
             See the operating model
           </Link>
         </div>
-        <HomeSignal />
       </div>
     </section>
   );
