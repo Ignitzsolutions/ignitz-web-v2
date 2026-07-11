@@ -14442,6 +14442,82 @@ body {
   margin-top: 10px;
 }
 
+.home-signal {
+  width: 100%;
+  margin-top: 14px;
+  padding: 18px 18px 16px;
+  border-top: 1px solid rgba(11, 13, 18, 0.08);
+  border-bottom: 1px solid rgba(11, 13, 18, 0.08);
+  background:
+    linear-gradient(180deg, rgba(23, 40, 74, 0.03), rgba(255, 255, 255, 0.82)),
+    var(--surface);
+}
+
+.home-signal-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-signal-label {
+  color: var(--navy);
+}
+
+.home-signal-copy {
+  margin: 10px 0 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.home-signal-copy strong {
+  color: var(--navy);
+}
+
+.home-signal-cursor {
+  margin-left: 2px;
+  color: var(--orange);
+  animation: home-caret-blink 1s steps(1, end) infinite;
+}
+
+.home-signal-wave {
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.home-signal-wave svg {
+  display: block;
+  width: 100%;
+  height: 34px;
+}
+
+.home-signal-wave path {
+  fill: none;
+  stroke: var(--navy);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  stroke-dasharray: 12 8;
+  animation: home-wave-flow 14s linear infinite;
+}
+
+.home-signal-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
 .home-section-intro {
   max-width: 700px;
   margin: 0 auto;
@@ -14652,9 +14728,53 @@ body {
     width: 100%;
   }
 
+  .home-signal {
+    padding: 16px 14px 14px;
+  }
+
+  .home-signal-topline {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+  }
+
+  .home-signal-copy {
+    text-align: center;
+  }
+
   .home-system-grid,
   .home-process-grid,
   .home-proof-band {
     gap: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-signal-cursor,
+  .home-signal-wave path {
+    animation: none;
+  }
+}
+
+@keyframes home-caret-blink {
+  0%,
+  48% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes home-wave-flow {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -220;
   }
 }
