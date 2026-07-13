@@ -35,7 +35,7 @@ export function ProjectQuoteEstimator() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
-  const [statusMessage, setStatusMessage] = useState("Add email and phone to receive it.");
+  const [statusMessage, setStatusMessage] = useState("Add your details and we’ll review the brief.");
 
   const projectType = PROJECT_TYPES.find((option) => option.value === projectTypeValue) ?? PROJECT_TYPES[0];
   const scope = SCOPES.find((option) => option.value === scopeValue) ?? SCOPES[0];
@@ -45,7 +45,7 @@ export function ProjectQuoteEstimator() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSubmitState("submitting");
-    setStatusMessage("Saving your quotation request...");
+    setStatusMessage("Sending your project brief…");
 
     try {
       const response = await fetch("/api/project-quotes", {
@@ -70,7 +70,7 @@ export function ProjectQuoteEstimator() {
       }
 
       setSubmitState("success");
-      setStatusMessage("Thanks. We saved your request and will send the quotation after review.");
+      setStatusMessage("Thanks. Your project brief is saved for review.");
       setRequirements("");
     } catch (error) {
       setSubmitState("error");
@@ -81,8 +81,8 @@ export function ProjectQuoteEstimator() {
   return (
     <form className="footer-quote-estimator" aria-labelledby={titleId} onSubmit={handleSubmit}>
       <div className="footer-quote-header">
-        <p>Quote estimator</p>
-        <h2 id={titleId}>Get quote.</h2>
+        <p>Start a conversation</p>
+        <h2 id={titleId}>Share your project brief.</h2>
       </div>
 
       <div className="footer-quote-grid">
@@ -91,6 +91,7 @@ export function ProjectQuoteEstimator() {
           <select
             className="footer-quote-option"
             id={projectTypeId}
+            name="projectType"
             value={projectTypeValue}
             onChange={(event) => setProjectTypeValue(event.target.value as ProjectTypeValue)}
           >
@@ -107,6 +108,7 @@ export function ProjectQuoteEstimator() {
           <select
             className="footer-quote-option"
             id={scopeId}
+            name="scope"
             value={scopeValue}
             onChange={(event) => setScopeValue(event.target.value as ScopeValue)}
           >
@@ -123,6 +125,7 @@ export function ProjectQuoteEstimator() {
           <select
             className="footer-quote-option"
             id={integrationsId}
+            name="integrations"
             value={integrationValue}
             onChange={(event) => setIntegrationValue(event.target.value as IntegrationValue)}
           >
@@ -139,6 +142,7 @@ export function ProjectQuoteEstimator() {
           <select
             className="footer-quote-option"
             id={timelineId}
+            name="timeline"
             value={timelineValue}
             onChange={(event) => setTimelineValue(event.target.value as TimelineValue)}
           >
@@ -155,6 +159,7 @@ export function ProjectQuoteEstimator() {
           <textarea
             className="footer-quote-option"
             id={requirementsId}
+            name="requirements"
             rows={4}
             value={requirements}
             onChange={(event) => setRequirements(event.target.value)}
@@ -167,6 +172,7 @@ export function ProjectQuoteEstimator() {
           <input
             className="footer-quote-option"
             id={emailId}
+            name="email"
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -180,6 +186,7 @@ export function ProjectQuoteEstimator() {
           <input
             className="footer-quote-option"
             id={phoneId}
+            name="phone"
             type="tel"
             value={phone}
             onChange={(event) => setPhone(event.target.value)}
@@ -191,7 +198,7 @@ export function ProjectQuoteEstimator() {
 
       <div className="footer-quote-summary" aria-live="polite" id={statusId}>
         <div className="footer-quote-total">
-          <span>{submitState === "success" ? "Quote request saved" : "Estimate ready"}</span>
+          <span>{submitState === "success" ? "Project brief received" : "Your selected scope"}</span>
           <span>{statusMessage}</span>
         </div>
         <p>
@@ -201,12 +208,12 @@ export function ProjectQuoteEstimator() {
 
       <div className="footer-quote-actions">
         <button className="footer-quote-option" type="submit" disabled={submitState === "submitting"}>
-          {submitState === "submitting" ? "Saving..." : "Send request"}
+          {submitState === "submitting" ? "Sending…" : "Send project brief"}
         </button>
       </div>
 
       <p className="footer-quote-note">
-        We review every estimate before sending.
+        We review every brief before recommending a next step.
       </p>
     </form>
   );

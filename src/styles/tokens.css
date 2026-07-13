@@ -1,0 +1,173 @@
+/* Direction A — Editorial Operating System. Standalone until the redesign implementation imports it. */
+:root {
+  color-scheme: light;
+
+  /* Brand and neutral primitives */
+  --brand-navy-50: #f3f6fb;
+  --brand-navy-100: #e5ebf4;
+  --brand-navy-600: #20365f;
+  --brand-navy-700: #17284a;
+  --brand-navy-800: #101d38;
+  --brand-orange-50: #fff7ed;
+  --brand-orange-100: #ffead1;
+  --brand-orange-500: #f28c22;
+  --brand-orange-600: #dd7410;
+  --brand-orange-700: #b85f09;
+  --neutral-0: #ffffff;
+  --neutral-50: #f7f8fa;
+  --neutral-100: #eef1f4;
+  --neutral-200: #dce1e7;
+  --neutral-300: #c3cad3;
+  --neutral-600: #58606d;
+  --neutral-800: #252a33;
+  --neutral-950: #0b0d12;
+  --green-50: #eff8f4;
+  --green-700: #256854;
+  --amber-50: #fff8e8;
+  --amber-700: #8a5600;
+  --red-50: #fff1f0;
+  --red-700: #b42318;
+
+  /* Semantic color roles */
+  --color-canvas: var(--neutral-0);
+  --color-surface: var(--neutral-0);
+  --color-surface-subtle: var(--neutral-50);
+  --color-surface-selected: var(--brand-navy-50);
+  --color-surface-accent: var(--brand-orange-50);
+  --color-text-primary: var(--neutral-950);
+  --color-text-secondary: var(--neutral-600);
+  --color-text-brand: var(--brand-navy-700);
+  --color-text-on-dark: var(--neutral-0);
+  --color-border: var(--neutral-200);
+  --color-border-strong: var(--neutral-300);
+  --color-action-primary: var(--brand-orange-500);
+  --color-action-primary-hover: var(--brand-orange-600);
+  --color-action-primary-text: var(--neutral-950);
+  --color-action-secondary: var(--brand-navy-700);
+  --color-action-secondary-hover: var(--brand-navy-800);
+  --color-action-secondary-text: var(--neutral-0);
+  --color-link: var(--brand-navy-700);
+  --color-link-hover: var(--brand-orange-700);
+  --color-focus: var(--brand-orange-600);
+  --color-focus-halo: var(--neutral-0);
+  --color-info-surface: var(--brand-navy-50);
+  --color-info: var(--brand-navy-700);
+  --color-success-surface: var(--green-50);
+  --color-success: var(--green-700);
+  --color-warning-surface: var(--amber-50);
+  --color-warning: var(--amber-700);
+  --color-error-surface: var(--red-50);
+  --color-error: var(--red-700);
+
+  /* Typography */
+  --font-body: var(--font-inter), "Inter", "Segoe UI", Arial, sans-serif;
+  --font-heading: var(--font-space-grotesk), var(--font-inter), "Inter", "Segoe UI", Arial, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  --text-display: clamp(3.25rem, 2.45rem + 3.55vw, 4rem);
+  --text-h1: clamp(2.625rem, 2.15rem + 2.1vw, 3.25rem);
+  --text-h2: clamp(2rem, 1.62rem + 1.7vw, 2.5rem);
+  --text-h3: 1.75rem;
+  --text-h4: 1.3125rem;
+  --text-lead: clamp(1.125rem, 1.05rem + 0.3vw, 1.1875rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-label: 0.75rem;
+  --leading-display: 0.98;
+  --leading-heading: 1.08;
+  --leading-body: 1.6;
+  --leading-compact: 1.35;
+  --tracking-display: -0.025em;
+  --tracking-heading: -0.015em;
+  --tracking-label: 0.12em;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* 4px spacing scale */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+  --space-18: 4.5rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-28: 7rem;
+  --space-32: 8rem;
+  --space-section: clamp(var(--space-14), 8vw, var(--space-24));
+  --space-section-compact: clamp(var(--space-10), 5.5vw, var(--space-16));
+  --space-hero-block: clamp(var(--space-16), 7vw, var(--space-24));
+  --space-component: clamp(var(--space-5), 2vw, var(--space-6));
+  --gutter-page: clamp(var(--space-6), 4vw, var(--space-14));
+
+  /* Layout: 4 columns base, 8 at 768px, 12 at 1024px */
+  --width-content: 75rem;
+  --width-wide: 82.5rem;
+  --width-reading: 45rem;
+  --width-compact: 35rem;
+  --grid-columns: 4;
+  --grid-gap: var(--space-4);
+  --header-height: 4rem;
+
+  /* Shape, borders, elevation, and controls */
+  --border-width: 1px;
+  --border-width-strong: 2px;
+  --radius-small: 0.25rem;
+  --radius-control: 0.5rem;
+  --radius-surface: 0.75rem;
+  --radius-full: 999px;
+  --shadow-none: none;
+  --shadow-low: 0 8px 24px rgb(11 13 18 / 8%);
+  --shadow-medium: 0 20px 56px rgb(11 13 18 / 14%);
+  --control-height-min: 2.75rem;
+  --control-height: 3rem;
+  --control-padding-inline: var(--space-5);
+  --textarea-height-min: 8rem;
+  --icon-small: 1rem;
+  --icon-medium: 1.25rem;
+  --icon-large: 1.5rem;
+  --icon-stroke: 1.75;
+  --focus-ring: 0 0 0 2px var(--color-focus-halo), 0 0 0 5px var(--color-focus);
+
+  /* Layers and motion */
+  --layer-sticky: 20;
+  --layer-menu: 40;
+  --layer-dialog: 60;
+  --duration-instant: 1ms;
+  --duration-micro: 120ms;
+  --duration-control: 180ms;
+  --duration-panel: 240ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --grid-columns: 8;
+    --grid-gap: var(--space-5);
+    --header-height: 4.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --grid-columns: 12;
+    --grid-gap: var(--space-6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-micro: var(--duration-instant);
+    --duration-control: var(--duration-instant);
+    --duration-panel: var(--duration-instant);
+  }
+}

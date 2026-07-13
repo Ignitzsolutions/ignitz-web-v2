@@ -14,9 +14,10 @@ export function pageMetadata(title: string, description: string, path = "/"): Me
       url,
       siteName: site.name,
       type: "website",
+      locale: "en_IN",
     },
     twitter: {
-      card: "summary_large_image",
+      card: "summary",
       title,
       description,
     },

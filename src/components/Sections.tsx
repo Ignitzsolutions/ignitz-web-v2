@@ -44,7 +44,6 @@ export function PrecisionHome() {
       <PrecisionHero />
       <PlatformOperatingSystem />
       <HomepageTrustBand />
-      <FinalCTA />
     </>
   );
 }
@@ -54,15 +53,15 @@ function PrecisionHero() {
     <section className="home-hero" aria-labelledby="home-hero-title">
       <div className="home-hero-inner">
         <BrandLogo className="home-hero-brand" />
-        <p className="eyebrow">AI SaaS for modern teams</p>
-        <h1 id="home-hero-title">Build the AI layer your team can actually run.</h1>
+        <p className="eyebrow">Enterprise AI operating partner</p>
+        <h1 id="home-hero-title">Turn AI ambition into capability your team can run.</h1>
         <p className="home-hero-lead">
-          Ignitz designs product surfaces, workflow automation, and operating memory for
-          teams that need simple, credible, production-ready AI software.
+          Train your teams, build production AI products, and add expert delivery capacity
+          without creating long-term dependency.
         </p>
         <div className="hero-actions home-hero-actions" aria-label="Homepage actions">
           <Link className="button button-primary" href="/contact">
-            Start a build
+            Discuss your initiative
           </Link>
           <Link className="button button-secondary" href="#operating-model">
             See the operating model
@@ -90,7 +89,7 @@ function PlatformOperatingSystem() {
             <span>{String(index + 1).padStart(2, "0")}</span>
             <h3>{pillar.title}</h3>
             <p>{pillar.summary}</p>
-            <small>{pillar.signal}</small>
+            <Link href={pillar.href}>{pillar.signal}</Link>
           </article>
         ))}
       </div>
@@ -107,8 +106,8 @@ function HomepageTrustBand() {
         <p className="eyebrow">How we work</p>
         <h2>Small surface area. Clear delivery path.</h2>
         <p>
-          Discovery first. Build second. Transfer always. The process stays visible so the
-          page reads like a credible product company, not a speculative deck.
+          Discovery first. Build second. Transfer always. Each engagement has clear
+          ownership, review points, and a practical handover path.
         </p>
       </div>
       <div className="home-process-grid">
@@ -496,26 +495,8 @@ export function ContactSection() {
   );
 }
 
-export function FinalCTA() {
-  return (
-    <section className="platform-final-cta">
-      <div>
-        <p className="eyebrow">Build with Ignitz</p>
-        <h2>Bring the product, workflow, or healthcare system that needs intelligence.</h2>
-        <p>
-          We will route the conversation to Labs, Business Systems, or Health and
-          shape the next concrete build path.
-        </p>
-      </div>
-      <Link className="button button-primary" href="/contact">
-        Contact the team
-      </Link>
-    </section>
-  );
-}
-
 export function Footer() {
-  const footerSignals = ["Systems", "Operations", "Healthcare", "Builder pipeline"];
+  const footerSignals = ["AI training", "Product development", "Expert teams"];
   const footerGroups = [
     {
       label: "Platform",
@@ -568,10 +549,10 @@ export function Footer() {
               <BrandLogo className="footer-logo" />
             </Link>
             <p className="footer-kicker">Ignitz Solutions</p>
-            <h2>We solve complex work globally.</h2>
+            <h2>Build AI capability that stays with your team.</h2>
             <p>
-              Products, operations, healthcare workflows, and training programs,
-              built into systems teams can run.
+              Enterprise AI training, product development, and embedded experts—from
+              first use case to production and capability transfer.
             </p>
             <div className="footer-signal-row" aria-label="Ignitz platform signals">
               {footerSignals.map((signal) => (
@@ -579,7 +560,7 @@ export function Footer() {
               ))}
             </div>
           </div>
-          <div className="footer-action-panel" aria-label="Quote estimator">
+          <div className="footer-action-panel" aria-label="Project brief">
             <ProjectQuoteEstimator />
           </div>
         </div>

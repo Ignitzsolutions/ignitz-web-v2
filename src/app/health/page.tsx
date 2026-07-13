@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { PlatformPanelConsole } from "@/components/PlatformRoutePage";
-import { FinalCTA } from "@/components/Sections";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata(
@@ -15,7 +14,6 @@ export default function HealthPage() {
       <HealthPlatformHero />
       <HealthWorkflowPlatform />
       <HealthTrustSystem />
-      <FinalCTA />
     </main>
   );
 }

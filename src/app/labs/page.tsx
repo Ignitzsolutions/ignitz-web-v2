@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { PlatformPanelConsole } from "@/components/PlatformRoutePage";
-import { FinalCTA } from "@/components/Sections";
 import type { AIProduct, Hackathon, IncubatedProject } from "@/content/dynamic/types";
 import { pageMetadata } from "@/lib/seo";
 import {
@@ -28,7 +27,6 @@ export default async function LabsPage() {
       <LabsOperatingModel />
       <LabsProductSystem products={products} projects={projects} />
       <LabsBuilderPipeline hackathons={hackathons} projects={projects} />
-      <FinalCTA />
     </main>
   );
 }

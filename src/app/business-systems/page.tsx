@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { PlatformPanelConsole } from "@/components/PlatformRoutePage";
-import { FinalCTA } from "@/components/Sections";
 import { divisions } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
@@ -18,7 +17,6 @@ export default function BusinessSystemsPage() {
       <BusinessSystemsHero />
       <BusinessOperatingSystem />
       <BusinessSystemMap />
-      <FinalCTA />
     </main>
   );
 }
