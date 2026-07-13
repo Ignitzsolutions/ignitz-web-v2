@@ -177,6 +177,7 @@ export type HomepagePlatformPillar = {
   title: string;
   summary: string;
   signal: string;
+  href: string;
   accent: "blue" | "orange" | "green" | "navy";
 };
 

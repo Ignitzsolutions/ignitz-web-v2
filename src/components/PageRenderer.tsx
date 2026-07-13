@@ -4,7 +4,6 @@ import {
   CaseStudyGrid,
   ContactSection,
   FAQSection,
-  FinalCTA,
   Hero,
   IndustryIndex,
   OutcomeProof,
@@ -52,7 +51,6 @@ export function PageRenderer({
       {!home && page.sections.industries ? <IndustryIndex items={page.sections.industries} /> : null}
       {contact ? <ContactSection /> : null}
       {!home ? <FAQSection page={page} /> : null}
-      <FinalCTA />
     </main>
   );
 }

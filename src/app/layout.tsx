@@ -22,11 +22,24 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
+  applicationName: site.name,
   title: {
-    default: "Ignitz | Train Teams and Build AI Products",
+    default: "Ignitz | Enterprise AI Training, Products and Expert Teams",
     template: "%s",
   },
   description: site.description,
+  icons: { icon: "/favicon.ico" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({

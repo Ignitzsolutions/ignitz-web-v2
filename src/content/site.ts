@@ -29,7 +29,8 @@ import type {
 export const site = {
   name: "Ignitz",
   url: "https://www.ignitz.net",
-  description: "Ignitz builds AI software and operating systems for modern teams.",
+  description:
+    "Ignitz helps enterprises train AI-ready teams, build production AI products, and embed expert delivery teams.",
   address:
     "4th Floor, Plot No-12, Survey No 1009, KPHB Phase 6, Kukatpally, Hyderabad, Telangana 500085, India",
   phone: "+91 93927 96918",
@@ -37,12 +38,12 @@ export const site = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "Platform", href: "/labs" },
-  { label: "Solutions", href: "/business-systems" },
-  { label: "Products", href: "/ai-products" },
-  { label: "Resources", href: "/blogs" },
-  { label: "Company", href: "/team" },
-  { label: "Contact", href: "/contact" },
+  { label: "AI Training", href: "/training" },
+  { label: "AI Product Development", href: "/ai-product-development" },
+  { label: "Expert Teams", href: "/expert-teams" },
+  { label: "Work", href: "/case-studies" },
+  { label: "Insights", href: "/blogs" },
+  { label: "Company", href: "/about" },
 ];
 
 export const proofMetrics: ProofMetric[] = [
@@ -250,23 +251,26 @@ export const companySignals: CompanySignal[] = [
 export const homepagePlatformPillars: HomepagePlatformPillar[] = [
   {
     eyebrow: "01 / Find",
-    title: "See the real workflow",
-    summary: "Map the owner, decision, data source, exception, and handoff before a single AI surface is built.",
-    signal: "Workflow graph",
+    title: "Train AI-ready teams",
+    summary: "Build practical AI fluency, consulting rigor, and leadership alignment around real enterprise work.",
+    signal: "Explore AI training",
+    href: "/training",
     accent: "blue",
   },
   {
     eyebrow: "02 / Build",
-    title: "Turn context into systems",
-    summary: "Create copilots, dashboards, portals, agents, and automations around the way the team actually works.",
-    signal: "AI product layer",
+    title: "Build production AI products",
+    summary: "Move from use-case discovery to governed copilots, agents, workflow systems, and production software.",
+    signal: "Explore product development",
+    href: "/ai-product-development",
     accent: "orange",
   },
   {
     eyebrow: "03 / Run",
-    title: "Transfer the capability",
-    summary: "Ship with review loops, operating memory, training, and admin controls so the team can keep improving.",
-    signal: "Operating memory",
+    title: "Embed expert delivery teams",
+    summary: "Add consultants, engineers, and AI specialists who deliver with your team and transfer capability as they go.",
+    signal: "Explore expert teams",
+    href: "/expert-teams",
     accent: "green",
   },
 ];
