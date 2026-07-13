@@ -53,8 +53,10 @@ function PrecisionHero() {
     <section className="home-hero" aria-labelledby="home-hero-title">
       <div className="home-hero-inner">
         <BrandLogo className="home-hero-brand" />
-        <p className="eyebrow">Enterprise AI operating partner</p>
-        <h1 id="home-hero-title">Turn AI ambition into capability your team can run.</h1>
+        <p className="eyebrow home-hero-kicker">Strategy · delivery · capability transfer</p>
+        <h1 id="home-hero-title">
+          Turn AI ambition into lasting capability your team can own, operate, and scale.
+        </h1>
         <p className="home-hero-lead">
           Train your teams, build production AI products, and add expert delivery capacity
           without creating long-term dependency.

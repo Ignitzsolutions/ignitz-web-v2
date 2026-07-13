@@ -9868,23 +9868,25 @@ body {
 .footer-link-groups {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 0;
-  width: auto;
-  margin: 0 clamp(18px, 3vw, 38px);
-  overflow: hidden;
-  border: 1px solid rgba(23, 40, 74, 0.1);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.68);
-  backdrop-filter: blur(12px);
+  gap: clamp(18px, 2.4vw, 36px);
+  width: min(calc(100% - 76px), 1320px);
+  margin: 0 auto;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
 }
 
 .footer-link-groups nav {
-  min-height: 220px;
+  min-width: 0;
+  min-height: 190px;
   display: grid;
   align-content: start;
   gap: 12px;
-  padding: clamp(20px, 2.6vw, 30px);
-  border-right: 1px solid rgba(23, 40, 74, 0.09);
+  padding: 24px 0;
+  border-top: 1px solid rgba(23, 40, 74, 0.14);
+  border-right: 0;
 }
 
 .footer-link-groups nav:last-child {
@@ -9901,6 +9903,8 @@ body {
 }
 
 .footer-link-groups a {
+  max-width: 16ch;
+  overflow-wrap: anywhere;
   color: #20252f;
   font-size: 0.98rem;
   font-weight: 820;
@@ -10016,7 +10020,8 @@ body {
 
   .footer-link-groups {
     grid-template-columns: 1fr;
-    margin: 0 12px;
+    width: calc(100% - 24px);
+    margin: 0 auto;
   }
 
   .footer-link-groups nav,
@@ -14442,11 +14447,11 @@ body {
 }
 
 .home-hero {
-  padding: clamp(72px, 10vw, 144px) 0 28px;
+  padding: clamp(58px, 7vw, 96px) 0 44px;
 }
 
 .home-hero-inner {
-  max-width: 760px;
+  max-width: 1040px;
   margin: 0 auto;
   display: grid;
   justify-items: center;
@@ -14460,8 +14465,18 @@ body {
 }
 
 .home-hero h1 {
-  max-width: 11ch;
-  font-size: clamp(3.1rem, 7vw, 6.8rem);
+  max-width: 18ch;
+  font-size: clamp(3.2rem, 5.4vw, 5.9rem);
+  line-height: 0.96;
+  text-wrap: balance;
+}
+
+.home-hero-kicker {
+  padding-left: 12px;
+  border-left: 3px solid var(--orange);
+  color: var(--navy);
+  letter-spacing: 0.12em;
+  line-height: 1.4;
 }
 
 .home-hero-lead {
@@ -14683,8 +14698,14 @@ body {
   }
 
   .home-hero h1 {
-    max-width: 10ch;
-    font-size: clamp(2.8rem, 12vw, 4.6rem);
+    max-width: 13ch;
+    font-size: clamp(2.65rem, 11vw, 4.2rem);
+    line-height: 0.98;
+  }
+
+  .home-hero-kicker {
+    max-width: 28ch;
+    text-align: left;
   }
 
   .home-hero-actions {

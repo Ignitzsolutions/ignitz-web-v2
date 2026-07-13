@@ -28,7 +28,7 @@ import type {
 
 export const site = {
   name: "Ignitz",
-  url: "https://www.ignitz.net",
+  url: "https://ignitz.tech",
   description:
     "Ignitz helps enterprises train AI-ready teams, build production AI products, and embed expert delivery teams.",
   address:
